@@ -35,12 +35,16 @@ function doPost(e) {
       lastRow = 1;
     }
 
+    // Format timestamp as: MM/DD/YYYY HH:MM:SS
+    const date = new Date(timestamp);
+    const formattedTimestamp = Utilities.formatDate(date, Session.getScriptTimeZone(), 'MM/dd/yyyy HH:mm:ss');
+
     // Write data to columns A, B, and C starting from row 2
-    // Column A: Timestamp
+    // Column A: Timestamp (formatted as MM/DD/YYYY HH:MM:SS)
     // Column B: Email
     // Column C: Source
     sheet.getRange(lastRow + 1, 1, 1, 3).setValues([[
-      new Date(timestamp),
+      formattedTimestamp,
       email,
       source
     ]]);
