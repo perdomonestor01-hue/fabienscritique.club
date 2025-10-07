@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Capture Test - Fabien's Critique</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: #0d0d0d;
+            color: #e6e6e6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: #1a1a1a;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #4a4a4a;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.8);
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #cccccc;
+            margin-bottom: 30px;
+            font-size: 1.125rem;
+        }
+
+        .icon {
+            width: 64px;
+            height: 64px;
+            background: #d97706;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 14px 16px;
+            background: #262626;
+            border: 2px solid #3a3a3a;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: #ffffff;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+
+        input[type="email"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #d97706;
+            box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.1);
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        select option {
+            background: #262626;
+            color: #ffffff;
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            background: #d97706;
+            color: #0d0d0d;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+        }
+
+        button:hover {
+            background: #b45309;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
+        }
+
+        button:disabled {
+            background: #4a4a4a;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .status-message {
+            margin-top: 20px;
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+
+        .status-message.success {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            display: block;
+        }
+
+        .status-message.error {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            display: block;
+        }
+
+        .instructions {
+            background: #262626;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 4px solid #d97706;
+        }
+
+        .instructions h3 {
+            color: #d97706;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .instructions ol {
+            margin-left: 20px;
+            color: #cccccc;
+            line-height: 1.8;
+        }
+
+        .instructions code {
+            background: #0d0d0d;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #d97706;
+            font-size: 0.875rem;
+        }
+
+        .test-data {
+            margin-top: 20px;
+            padding: 15px;
+            background: #262626;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            color: #22c55e;
+            display: none;
+        }
+
+        .test-data.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">📧</div>
+        <h1>Email Capture Test</h1>
+        <p class="subtitle">Test your Google Sheets integration</p>
+
+        <form id="emailForm">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="your@email.com"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="source">How did you find us?</label>
+                <select id="source" required>
+                    <option value="">Select a source...</option>
+                    <option value="YouTube">YouTube</option>
+                    <option value="Facebook">Facebook</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="X (Twitter)">X (Twitter)</option>
+                    <option value="Reddit">Reddit</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <button type="submit" id="submitBtn">Test Submission</button>
+        </form>
+
+        <div class="status-message" id="statusMessage"></div>
+        <div class="test-data" id="testData"></div>
+
+        <div class="instructions">
+            <h3>⚠️ Setup Required</h3>
+            <ol>
+                <li>Update <code>SCRIPT_URL</code> below (line ~120)</li>
+                <li>Deploy your Google Apps Script</li>
+                <li>Test the form</li>
+                <li>Check your Google Sheet for data</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // ✅ DEPLOYMENT URL CONFIGURED
+        // ============================================
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyF9XFM2J9JV7zX_pbz1ERMHEl3Ro9kgYlYp5RYL9XWKnQO7SijsDwayw6QCjM0x6jyRQ/exec';
+        // ============================================
+
+        const form = document.getElementById('emailForm');
+        const emailInput = document.getElementById('email');
+        const sourceSelect = document.getElementById('source');
+        const submitBtn = document.getElementById('submitBtn');
+        const statusMessage = document.getElementById('statusMessage');
+        const testData = document.getElementById('testData');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = emailInput.value;
+            const source = sourceSelect.value;
+            const timestamp = new Date().toISOString();
+
+            // Reset messages
+            statusMessage.className = 'status-message';
+            statusMessage.style.display = 'none';
+            testData.className = 'test-data';
+
+            // Show loading state
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+
+            // Display what will be sent
+            testData.innerHTML = `
+                <strong>Sending to Google Sheets:</strong><br>
+                Timestamp: ${timestamp}<br>
+                Email: ${email}<br>
+                Source: ${source}
+            `;
+            testData.className = 'test-data show';
+
+            try {
+                // Check if URL is updated
+                if (SCRIPT_URL.includes('YOUR_DEPLOYMENT_ID')) {
+                    throw new Error('Please update the SCRIPT_URL with your Google Apps Script deployment URL');
+                }
+
+                // Create form data
+                const formData = new FormData();
+                formData.append('email', email);
+                formData.append('timestamp', timestamp);
+                formData.append('source', source);
+
+                // Send to Google Sheets
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: formData
+                });
+
+                console.log('Response:', response);
+
+                // Show success message
+                statusMessage.className = 'status-message success';
+                statusMessage.textContent = '✅ Success! Check your Google Sheet for the new entry.';
+                statusMessage.style.display = 'block';
+
+                // Reset form
+                form.reset();
+
+            } catch (error) {
+                console.error('Error:', error);
+                statusMessage.className = 'status-message error';
+                statusMessage.textContent = `❌ Error: ${error.message}`;
+                statusMessage.style.display = 'block';
+            } finally {
+                // Reset button
+                submitBtn.textContent = 'Test Submission';
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Check if script URL is configured
+        window.addEventListener('load', () => {
+            if (SCRIPT_URL.includes('YOUR_DEPLOYMENT_ID')) {
+                statusMessage.className = 'status-message error';
+                statusMessage.textContent = '⚠️ Script URL not configured. Update line ~120 with your deployment URL.';
+                statusMessage.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

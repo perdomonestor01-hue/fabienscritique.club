@@ -1671,7 +1671,8 @@
                 formData.append('source', source);
 
                 // Google Apps Script Web App endpoint
-                const SCRIPT_URL = `https://script.google.com/macros/s/AKfycbyF9XFM2J9JV7zX_pbz1ERMHEl3Ro9kgYlYp5RYL9XWKnQO7SijsDwayw6QCjM0x6jyRQ/exec`;
+                // You'll need to create this in Google Apps Script (instructions below)
+                const SCRIPT_URL = `https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec`;
 
                 // Send to Google Sheets via Apps Script
                 const response = await fetch(SCRIPT_URL, {
