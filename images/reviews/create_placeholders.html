@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="c1" width="800" height="800"></canvas>
+<canvas id="c2" width="800" height="800"></canvas>
+<canvas id="c3" width="800" height="800"></canvas>
+<script>
+// Six Flags Fright Fest
+const c1 = document.getElementById('c1').getContext('2d');
+c1.fillStyle = '#1a1a1a';
+c1.fillRect(0, 0, 800, 800);
+c1.fillStyle = '#ff6600';
+c1.font = 'bold 80px Arial';
+c1.textAlign = 'center';
+c1.fillText('FRIGHT FEST', 400, 350);
+c1.font = '40px Arial';
+c1.fillText('Six Flags Over Texas', 400, 450);
+
+// North Face Antora
+const c2 = document.getElementById('c2').getContext('2d');
+c2.fillStyle = '#2d3e50';
+c2.fillRect(0, 0, 800, 800);
+c2.fillStyle = '#ffffff';
+c2.font = 'bold 60px Arial';
+c2.textAlign = 'center';
+c2.fillText('THE NORTH FACE', 400, 350);
+c2.font = '45px Arial';
+c2.fillText('Antora Triclimate', 400, 430);
+
+// Zeblaze Stratos 2 Ultra
+const c3 = document.getElementById('c3').getContext('2d');
+c3.fillStyle = '#000000';
+c3.fillRect(0, 0, 800, 800);
+c3.fillStyle = '#00ff88';
+c3.font = 'bold 70px Arial';
+c3.textAlign = 'center';
+c3.fillText('ZEBLAZE', 400, 350);
+c3.font = '50px Arial';
+c3.fillText('Stratos 2 Ultra', 400, 440);
+</script>
+</body>
+</html>

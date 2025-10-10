@@ -494,6 +494,13 @@
             overflow: hidden;
         }
 
+        .review-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         .review-image::after {
             content: '';
             position: absolute;
@@ -629,9 +636,8 @@
         }
 
         .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-8);
+            display: flex;
+            justify-content: center;
             margin-bottom: var(--space-12);
         }
 
@@ -686,6 +692,8 @@
             padding: var(--space-8);
             border-radius: var(--radius-lg);
             border: 1px solid var(--executive-steel);
+            width: 100%;
+            max-width: 600px;
         }
 
         .form-group {
@@ -1146,6 +1154,583 @@
                 font-size: var(--text-2xl);
             }
         }
+
+        /* ===================================
+           SUCCESS STATE STYLING
+           =================================== */
+
+        .email-modal-view {
+            position: relative;
+        }
+
+        .email-modal-success {
+            text-align: center;
+        }
+
+        /* Animated Checkmark */
+        .success-animation {
+            margin-bottom: var(--space-6);
+        }
+
+        .success-checkmark {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--space-4);
+            position: relative;
+        }
+
+        .check-icon {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            border-radius: 50%;
+            box-sizing: content-box;
+            border: 4px solid var(--accent-primary);
+            background: var(--accent-primary);
+        }
+
+        .icon-line {
+            height: 5px;
+            background-color: var(--bg-primary);
+            display: block;
+            border-radius: 2px;
+            position: absolute;
+            z-index: 10;
+        }
+
+        .icon-line.line-tip {
+            top: 46px;
+            left: 14px;
+            width: 25px;
+            transform: rotate(45deg);
+            animation: icon-line-tip 0.75s;
+        }
+
+        .icon-line.line-long {
+            top: 38px;
+            right: 8px;
+            width: 47px;
+            transform: rotate(-45deg);
+            animation: icon-line-long 0.75s;
+        }
+
+        .icon-circle {
+            top: -4px;
+            left: -4px;
+            z-index: 10;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            position: absolute;
+            box-sizing: content-box;
+            border: 4px solid rgba(217, 119, 6, 0.2);
+        }
+
+        .icon-fix {
+            top: 8px;
+            width: 5px;
+            left: 26px;
+            z-index: 1;
+            height: 85px;
+            position: absolute;
+            transform: rotate(-45deg);
+            background-color: var(--bg-secondary);
+        }
+
+        @keyframes icon-line-tip {
+            0% {
+                width: 0;
+                left: 1px;
+                top: 19px;
+            }
+            54% {
+                width: 0;
+                left: 1px;
+                top: 19px;
+            }
+            70% {
+                width: 50px;
+                left: -8px;
+                top: 37px;
+            }
+            84% {
+                width: 17px;
+                left: 21px;
+                top: 48px;
+            }
+            100% {
+                width: 25px;
+                left: 14px;
+                top: 46px;
+            }
+        }
+
+        @keyframes icon-line-long {
+            0% {
+                width: 0;
+                right: 46px;
+                top: 54px;
+            }
+            65% {
+                width: 0;
+                right: 46px;
+                top: 54px;
+            }
+            84% {
+                width: 55px;
+                right: 0px;
+                top: 35px;
+            }
+            100% {
+                width: 47px;
+                right: 8px;
+                top: 38px;
+            }
+        }
+
+        /* Confetti Animation */
+        .success-confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--accent-primary);
+            animation: confetti-fall 3s ease-out forwards;
+            opacity: 0;
+        }
+
+        .confetti:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+            background: var(--accent-primary);
+        }
+
+        .confetti:nth-child(2) {
+            left: 20%;
+            animation-delay: 0.2s;
+            background: #f59e0b;
+        }
+
+        .confetti:nth-child(3) {
+            left: 30%;
+            animation-delay: 0.4s;
+            background: var(--accent-dark);
+        }
+
+        .confetti:nth-child(4) {
+            left: 40%;
+            animation-delay: 0.1s;
+            background: #fbbf24;
+        }
+
+        .confetti:nth-child(5) {
+            left: 60%;
+            animation-delay: 0.3s;
+            background: var(--accent-primary);
+        }
+
+        .confetti:nth-child(6) {
+            left: 70%;
+            animation-delay: 0.5s;
+            background: #f59e0b;
+        }
+
+        .confetti:nth-child(7) {
+            left: 80%;
+            animation-delay: 0.2s;
+            background: var(--accent-dark);
+        }
+
+        .confetti:nth-child(8) {
+            left: 90%;
+            animation-delay: 0.4s;
+            background: #fbbf24;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                top: -10%;
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+            100% {
+                top: 110%;
+                opacity: 0;
+                transform: rotate(720deg);
+            }
+        }
+
+        /* Success Text Styling */
+        .success-title {
+            font-size: var(--text-3xl);
+            color: var(--text-primary);
+            margin-bottom: var(--space-3);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .success-subtitle {
+            font-size: var(--text-lg);
+            color: var(--text-tertiary);
+            margin-bottom: var(--space-8);
+            animation: fadeInUp 0.6s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        /* Success Card */
+        .success-card {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            background: var(--bg-tertiary);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--accent-primary);
+            margin-bottom: var(--space-6);
+            animation: fadeInUp 0.6s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        .success-card-icon {
+            font-size: var(--text-5xl);
+            flex-shrink: 0;
+        }
+
+        .success-card-content {
+            text-align: left;
+        }
+
+        .success-card-content h3 {
+            font-size: var(--text-xl);
+            color: var(--accent-primary);
+            margin-bottom: var(--space-2);
+        }
+
+        .success-card-content p {
+            font-size: var(--text-base);
+            color: var(--text-tertiary);
+            margin: 0;
+        }
+
+        /* Success Benefits */
+        .success-benefits {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+            margin-bottom: var(--space-8);
+            animation: fadeInUp 0.6s ease 0.6s forwards;
+            opacity: 0;
+        }
+
+        .success-benefit {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-3) var(--space-4);
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
+        }
+
+        .success-benefit:hover {
+            background: var(--bg-quaternary);
+            transform: translateX(4px);
+        }
+
+        .benefit-icon {
+            font-size: var(--text-2xl);
+            flex-shrink: 0;
+        }
+
+        .benefit-text {
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+            text-align: left;
+        }
+
+        /* Success CTA Button */
+        .success-cta-btn {
+            width: 100%;
+            padding: var(--space-4);
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: var(--text-base);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+            margin-bottom: var(--space-4);
+            animation: fadeInUp 0.6s ease 0.8s forwards;
+            opacity: 0;
+        }
+
+        .success-cta-btn:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
+        }
+
+        /* Success Note */
+        .success-note {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            line-height: 1.6;
+            animation: fadeInUp 0.6s ease 1s forwards;
+            opacity: 0;
+        }
+
+        /* Mobile Adjustments for Success */
+        @media (max-width: 768px) {
+            .success-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .success-card-content {
+                text-align: center;
+            }
+
+            .success-checkmark {
+                width: 60px;
+                height: 60px;
+            }
+
+            .check-icon {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        /* ===================================
+           CONTACT FORM SUCCESS STATE
+           =================================== */
+
+        .contact-success-view {
+            text-align: center;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Flying Plane Animation */
+        .contact-success-animation {
+            margin-bottom: var(--space-8);
+            height: 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .success-icon-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .success-icon-plane {
+            font-size: var(--text-6xl);
+            animation: flyPlane 2s ease-in-out forwards;
+            display: inline-block;
+            position: relative;
+            z-index: 2;
+        }
+
+        .success-icon-trail {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+            animation: drawTrail 2s ease-in-out forwards;
+            z-index: 1;
+        }
+
+        @keyframes flyPlane {
+            0% {
+                transform: translateX(-200px) translateY(20px) rotate(-20deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(200px) translateY(-20px) rotate(20deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes drawTrail {
+            0% {
+                width: 0;
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                width: 400px;
+                opacity: 0.6;
+            }
+            100% {
+                width: 400px;
+                opacity: 0;
+            }
+        }
+
+        /* Success Title and Subtitle */
+        .contact-success-title {
+            font-size: var(--text-3xl);
+            color: var(--text-primary);
+            margin-bottom: var(--space-3);
+            animation: fadeInUp 0.6s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .contact-success-subtitle {
+            font-size: var(--text-lg);
+            color: var(--text-tertiary);
+            margin-bottom: var(--space-10);
+            animation: fadeInUp 0.6s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        /* Timeline Styling */
+        .contact-success-timeline {
+            text-align: left;
+            margin-bottom: var(--space-10);
+            animation: fadeInUp 0.6s ease 0.6s forwards;
+            opacity: 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: var(--space-4);
+            padding: var(--space-5);
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-4);
+            border-left: 4px solid var(--accent-primary);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item:hover {
+            background: var(--bg-tertiary);
+            transform: translateX(8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2px;
+            top: 0;
+            width: 4px;
+            height: 0;
+            background: var(--accent-dark);
+            transition: height 0.5s ease;
+        }
+
+        .timeline-item:hover::before {
+            height: 100%;
+        }
+
+        .timeline-icon {
+            font-size: var(--text-3xl);
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--executive-graphite);
+            border-radius: var(--radius-md);
+        }
+
+        .timeline-content h4 {
+            font-size: var(--text-lg);
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+
+        .timeline-content p {
+            font-size: var(--text-base);
+            color: var(--text-tertiary);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Success Actions */
+        .contact-success-actions {
+            display: flex;
+            gap: var(--space-4);
+            justify-content: center;
+            margin-bottom: var(--space-6);
+            animation: fadeInUp 0.6s ease 0.8s forwards;
+            opacity: 0;
+        }
+
+        .contact-success-actions .btn {
+            flex: 1;
+            max-width: 250px;
+        }
+
+        /* Success Note */
+        .contact-success-note {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            padding: var(--space-4);
+            background: var(--bg-secondary);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--executive-graphite);
+            animation: fadeInUp 0.6s ease 1s forwards;
+            opacity: 0;
+        }
+
+        .contact-success-note strong {
+            color: var(--accent-primary);
+        }
+
+        /* Mobile Adjustments for Contact Success */
+        @media (max-width: 768px) {
+            .contact-success-actions {
+                flex-direction: column;
+            }
+
+            .contact-success-actions .btn {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .timeline-icon {
+                margin: 0 auto;
+            }
+
+            .timeline-content {
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1157,52 +1742,116 @@
         <div class="email-modal">
             <button class="email-modal-close" id="closeModal" aria-label="Close modal">✕</button>
 
-            <div class="email-modal-icon">📧</div>
+            <!-- Sign Up View (Default) -->
+            <div class="email-modal-view" id="signupView">
+                <div class="email-modal-icon">📧</div>
 
-            <h2>Get Honest Reviews First</h2>
-            <p class="email-modal-subtitle">
-                Join the community of people who value truth over hype. No spam, no BS.
-            </p>
+                <h2>Get Honest Reviews First</h2>
+                <p class="email-modal-subtitle">
+                    Join the community of people who value truth over hype. No spam, no BS.
+                </p>
 
-            <ul class="email-modal-benefits">
-                <li>Early access to new reviews and experiences</li>
-                <li>Exclusive behind-the-scenes content</li>
-                <li>Honest recommendations you can trust</li>
-                <li>Zero corporate BS or paid endorsements</li>
-            </ul>
+                <ul class="email-modal-benefits">
+                    <li>Early access to new reviews and experiences</li>
+                    <li>Exclusive behind-the-scenes content</li>
+                    <li>Honest recommendations you can trust</li>
+                    <li>Zero corporate BS or paid endorsements</li>
+                </ul>
 
-            <form class="email-modal-form" id="emailCaptureForm">
-                <input
-                    type="email"
-                    class="email-modal-input"
-                    id="emailInput"
-                    placeholder="Enter your email address"
-                    required
-                    aria-label="Email address"
-                >
-                <select
-                    class="email-modal-input"
-                    id="sourceSelect"
-                    required
-                    aria-label="How did you find us?"
-                >
-                    <option value="">How did you find us?</option>
-                    <option value="YouTube">YouTube</option>
-                    <option value="Facebook">Facebook</option>
-                    <option value="Instagram">Instagram</option>
-                    <option value="X (Twitter)">X (Twitter)</option>
-                    <option value="Reddit">Reddit</option>
-                    <option value="Other">Other</option>
-                </select>
-                <button type="submit" class="email-modal-submit">
-                    Join The Club
+                <form class="email-modal-form" id="emailCaptureForm">
+                    <input
+                        type="email"
+                        class="email-modal-input"
+                        id="emailInput"
+                        placeholder="Enter your email address"
+                        required
+                        aria-label="Email address"
+                    >
+                    <select
+                        class="email-modal-input"
+                        id="sourceSelect"
+                        required
+                        aria-label="How did you find us?"
+                    >
+                        <option value="">How did you find us?</option>
+                        <option value="YouTube">YouTube</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="X (Twitter)">X (Twitter)</option>
+                        <option value="Reddit">Reddit</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <button type="submit" class="email-modal-submit">
+                        Join The Club
+                    </button>
+                </form>
+
+                <p class="email-modal-privacy">
+                    We respect your privacy. Unsubscribe anytime.<br>
+                    Read our <a href="#">Privacy Policy</a>
+                </p>
+            </div>
+
+            <!-- Success View (Hidden by default) -->
+            <div class="email-modal-view email-modal-success" id="successView" style="display: none;">
+                <div class="success-animation">
+                    <div class="success-checkmark">
+                        <div class="check-icon">
+                            <span class="icon-line line-tip"></span>
+                            <span class="icon-line line-long"></span>
+                            <div class="icon-circle"></div>
+                            <div class="icon-fix"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="success-confetti">
+                    <div class="confetti"></div>
+                    <div class="confetti"></div>
+                    <div class="confetti"></div>
+                    <div class="confetti"></div>
+                    <div class="confetti"></div>
+                    <div class="confetti"></div>
+                    <div class="confetti"></div>
+                    <div class="confetti"></div>
+                </div>
+
+                <h2 class="success-title">🎉 Welcome to the Club!</h2>
+                <p class="success-subtitle">
+                    You're now part of the honest reviews community.
+                </p>
+
+                <div class="success-card">
+                    <div class="success-card-icon">📬</div>
+                    <div class="success-card-content">
+                        <h3>Check Your Email</h3>
+                        <p>We just sent you a welcome email with what to expect next.</p>
+                    </div>
+                </div>
+
+                <div class="success-benefits">
+                    <div class="success-benefit">
+                        <span class="benefit-icon">🎢</span>
+                        <span class="benefit-text">Exclusive roller coaster reviews</span>
+                    </div>
+                    <div class="success-benefit">
+                        <span class="benefit-icon">🛍️</span>
+                        <span class="benefit-text">Real product testing results</span>
+                    </div>
+                    <div class="success-benefit">
+                        <span class="benefit-icon">💯</span>
+                        <span class="benefit-text">Zero corporate BS guaranteed</span>
+                    </div>
+                </div>
+
+                <button class="success-cta-btn" id="successCTABtn">
+                    Start Exploring Reviews
                 </button>
-            </form>
 
-            <p class="email-modal-privacy">
-                We respect your privacy. Unsubscribe anytime.<br>
-                Read our <a href="#">Privacy Policy</a>
-            </p>
+                <p class="success-note">
+                    🔥 Pro tip: Add us to your contacts so our emails don't end up in spam!
+                </p>
+            </div>
         </div>
     </div>
 
@@ -1256,18 +1905,24 @@
                 <div class="about-text">
                     <h3>Why Honest Reviews Matter</h3>
                     <p>
-                        I've spent years experiencing the most intense rides, visiting unique venues,
-                        and testing products that promise the world. What I've learned is simple:
-                        most reviews lie.
+                        Social media is flooded with sponsored content forcing YouTubers to push the most
+                        expensive apps, software, tools, e-bikes, and computers—products that exceed what
+                        you actually need. Truth-telling has gone missing. Being real, honest, and direct
+                        is rare.
                     </p>
                     <p>
-                        Fabien's Critique was born from frustration with paid endorsements and
-                        sugar-coated experiences. Here, you get my unfiltered perspective—the
-                        adrenaline rushes, the disappointments, and everything in between.
+                        Fabien's Critique was born from frustration with this BS. If there's something that
+                        can prevent you from overspending, welcome to the club. Most people don't need a
+                        Ferrari to go to the grocery store—they need a reliable car to get to work.
                     </p>
                     <p>
-                        No sponsorships. No affiliate pressure. Just authentic experiences
-                        shared with people who value honesty over hype.
+                        I've spent years testing products, experiencing intense rides, and visiting unique
+                        venues. Here, you get my unfiltered perspective—the adrenaline rushes, the
+                        disappointments, and everything in between.
+                    </p>
+                    <p>
+                        No sponsorships. No affiliate pressure. Just authentic experiences that save you
+                        money and help you make smarter decisions.
                     </p>
                 </div>
 
@@ -1314,7 +1969,9 @@
             <div class="reviews-grid">
                 <!-- #1 Most Popular - 25,854 views -->
                 <article class="review-card">
-                    <div class="review-image">🥾</div>
+                    <div class="review-image">
+                        <img src="/images/reviews/north-face-glenclyffe.jpg" alt="The North Face Glenclyffe boots">
+                    </div>
                     <div class="review-content">
                         <span class="review-category">Outdoor Gear</span>
                         <h3 class="review-title">The North Face Glenclyffe: Rubber Upper Quality Issues</h3>
@@ -1322,7 +1979,7 @@
                             These boots looked promising until the rubber upper started deteriorating after moderate use. While the comfort and fit were decent, the material quality raises serious concerns about long-term durability.
                         </p>
                         <div class="review-meta">
-                            <span class="review-date">Oct 2024</span>
+                            <span class="review-date">Sep 2025</span>
                             <div class="review-rating">
                                 <span>★</span><span>★</span><span>☆</span><span>☆</span><span>☆</span>
                             </div>
@@ -1332,7 +1989,9 @@
 
                 <!-- #2 Most Popular - 20,513 views -->
                 <article class="review-card">
-                    <div class="review-image">🚴</div>
+                    <div class="review-image">
+                        <img src="/images/reviews/geoid-cc-600.jpg" alt="GEOID CC 600 bike computer">
+                    </div>
                     <div class="review-content">
                         <span class="review-category">Cycling Tech</span>
                         <h3 class="review-title">GEOID CC 600: Feature-Rich but Frustrating Navigation</h3>
@@ -1340,7 +1999,7 @@
                             This budget bike computer from China packs impressive features including street view navigation and mapping capabilities. However, persistent reroute glitches and navigation reliability issues prevent it from being a true Garmin competitor.
                         </p>
                         <div class="review-meta">
-                            <span class="review-date">Sep 2024</span>
+                            <span class="review-date">Aug 2025</span>
                             <div class="review-rating">
                                 <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
                             </div>
@@ -1350,7 +2009,9 @@
 
                 <!-- #3 Most Popular - 19,002 views -->
                 <article class="review-card">
-                    <div class="review-image">🎢</div>
+                    <div class="review-image">
+                        <img src="/images/reviews/six-flags-fright-fest.jpg" alt="Six Flags Fright Fest">
+                    </div>
                     <div class="review-content">
                         <span class="review-category">Experiences</span>
                         <h3 class="review-title">Six Flags Fright Fest: Inaugural Event Experience</h3>
@@ -1358,7 +2019,7 @@
                             The inaugural Fright Fest delivers genuine scares and well-executed haunted attractions that elevate the typical Six Flags experience. While crowds can be overwhelming, the production quality and scare actors make it worth the premium ticket price.
                         </p>
                         <div class="review-meta">
-                            <span class="review-date">Oct 2024</span>
+                            <span class="review-date">Oct 2025</span>
                             <div class="review-rating">
                                 <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
                             </div>
@@ -1368,7 +2029,9 @@
 
                 <!-- #4 - 6,990 views -->
                 <article class="review-card">
-                    <div class="review-image">⌚</div>
+                    <div class="review-image">
+                        <img src="/images/reviews/igpsport-bsc100s.jpg" alt="iGPSPORT BSC100S">
+                    </div>
                     <div class="review-content">
                         <span class="review-category">Cycling Tech</span>
                         <h3 class="review-title">iGPSPORT BSC100S vs Garmin 735XT: The Budget Alternative</h3>
@@ -1376,7 +2039,7 @@
                             The iGPSPORT BSC100S proves you don't need to spend Garmin money for solid cycling metrics. While it lacks some premium features, the core functionality is surprisingly reliable for serious training.
                         </p>
                         <div class="review-meta">
-                            <span class="review-date">Aug 2024</span>
+                            <span class="review-date">Jul 2025</span>
                             <div class="review-rating">
                                 <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
                             </div>
@@ -1386,7 +2049,9 @@
 
                 <!-- #5 - 5,025 views -->
                 <article class="review-card">
-                    <div class="review-image">🧥</div>
+                    <div class="review-image">
+                        <img src="/images/reviews/north-face-antora.jpg" alt="The North Face Antora Triclimate jacket">
+                    </div>
                     <div class="review-content">
                         <span class="review-category">Outdoor Gear</span>
                         <h3 class="review-title">The North Face Antora Triclimate: 2-in-1 Genius Design</h3>
@@ -1394,7 +2059,7 @@
                             Finally, a 3-in-1 jacket system that actually works as advertised. The Antora Triclimate's modular design delivers genuine versatility across seasons without the bulk or compromise typical of convertible jackets.
                         </p>
                         <div class="review-meta">
-                            <span class="review-date">Sep 2024</span>
+                            <span class="review-date">Jun 2025</span>
                             <div class="review-rating">
                                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                             </div>
@@ -1404,7 +2069,9 @@
 
                 <!-- #6 - 3,597 views -->
                 <article class="review-card">
-                    <div class="review-image">👟</div>
+                    <div class="review-image">
+                        <img src="/images/reviews/north-face-vectiv-taraval.jpg" alt="North Face Vectiv Taraval trail shoes">
+                    </div>
                     <div class="review-content">
                         <span class="review-category">Outdoor Gear</span>
                         <h3 class="review-title">North Face Vectiv Taraval: Trail Shoe with Major Design Flaws</h3>
@@ -1412,7 +2079,7 @@
                             The Vectiv Taraval promised innovative trail performance but delivers disappointing real-world results. Comfort and durability issues emerged quickly during testing, making these hard to recommend despite the tech-forward marketing.
                         </p>
                         <div class="review-meta">
-                            <span class="review-date">Jul 2024</span>
+                            <span class="review-date">May 2025</span>
                             <div class="review-rating">
                                 <span>★</span><span>★</span><span>☆</span><span>☆</span><span>☆</span>
                             </div>
@@ -1422,7 +2089,9 @@
 
                 <!-- Additional Reviews -->
                 <article class="review-card">
-                    <div class="review-image">⌚</div>
+                    <div class="review-image">
+                        <img src="/images/reviews/zeblaze-stratos-2-ultra.jpg" alt="Zeblaze Stratos 2 Ultra smartwatch">
+                    </div>
                     <div class="review-content">
                         <span class="review-category">Tech</span>
                         <h3 class="review-title">Zeblaze Stratos 2 Ultra: Budget Smartwatch Overachiever</h3>
@@ -1430,7 +2099,7 @@
                             This Chinese smartwatch punches way above its weight class with impressive battery life and comprehensive fitness tracking. While the software isn't as polished as Apple or Garmin, the value proposition is undeniable.
                         </p>
                         <div class="review-meta">
-                            <span class="review-date">Aug 2024</span>
+                            <span class="review-date">Apr 2025</span>
                             <div class="review-rating">
                                 <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
                             </div>
@@ -1439,7 +2108,9 @@
                 </article>
 
                 <article class="review-card">
-                    <div class="review-image">🕶️</div>
+                    <div class="review-image">
+                        <img src="/images/reviews/oakley-encoder.jpg" alt="Oakley Encoder cycling glasses">
+                    </div>
                     <div class="review-content">
                         <span class="review-category">Cycling Tech</span>
                         <h3 class="review-title">Oakley Encoder: Premium Cycling Glasses Worth the Hype</h3>
@@ -1447,7 +2118,7 @@
                             Oakley's Encoder cycling glasses justify their premium price with exceptional optics, secure fit, and genuine performance benefits. These are noticeably better than budget alternatives in real-world riding conditions.
                         </p>
                         <div class="review-meta">
-                            <span class="review-date">Jun 2024</span>
+                            <span class="review-date">Mar 2025</span>
                             <div class="review-rating">
                                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                             </div>
@@ -1456,7 +2127,9 @@
                 </article>
 
                 <article class="review-card">
-                    <div class="review-image">🎧</div>
+                    <div class="review-image">
+                        <img src="/images/reviews/skullcandy-method-360.jpg" alt="Skullcandy Method 360 ANC earbuds">
+                    </div>
                     <div class="review-content">
                         <span class="review-category">Tech</span>
                         <h3 class="review-title">Skullcandy Method 360 ANC: Budget ANC with Surprises</h3>
@@ -1464,7 +2137,7 @@
                             Skullcandy delivers unexpectedly effective active noise cancellation at a budget-friendly price. While they can't match Sony or Bose for pure ANC performance, the value proposition is compelling for everyday use.
                         </p>
                         <div class="review-meta">
-                            <span class="review-date">May 2024</span>
+                            <span class="review-date">Feb 2025</span>
                             <div class="review-rating">
                                 <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
                             </div>
@@ -1488,39 +2161,39 @@
 
             <div class="blog-grid">
                 <article class="blog-card">
-                    <div class="blog-date">Jan 15, 2025</div>
+                    <div class="blog-date">Oct 20, 2025</div>
                     <h3 class="blog-title">
-                        <a href="#">Why Most Product Reviews Are Complete Garbage</a>
-                    </h3>
-                    <p class="blog-excerpt">
-                        Affiliate links, sponsored content, and paid placements have destroyed honest
-                        product reviews. Here's how to spot fake reviews and find the truth.
-                    </p>
-                    <a href="#" class="blog-read-more">Read More →</a>
-                </article>
-
-                <article class="blog-card">
-                    <div class="blog-date">Jan 08, 2025</div>
-                    <h3 class="blog-title">
-                        <a href="#">The Psychology of Extreme Experiences</a>
-                    </h3>
-                    <p class="blog-excerpt">
-                        Why do we seek out roller coasters, skydiving, and other intense experiences?
-                        Science has some fascinating answers about fear, adrenaline, and human nature.
-                    </p>
-                    <a href="#" class="blog-read-more">Read More →</a>
-                </article>
-
-                <article class="blog-card">
-                    <div class="blog-date">Dec 28, 2024</div>
-                    <h3 class="blog-title">
-                        <a href="#">How Theme Parks Manipulate Your Experience</a>
+                        <a href="/blog/theme-parks-manipulation.html">How Theme Parks Manipulate Your Experience</a>
                     </h3>
                     <p class="blog-excerpt">
                         From queue line psychology to forced perspective, theme parks are masters of
                         manipulation. Here's every trick they use and how to see through them.
                     </p>
-                    <a href="#" class="blog-read-more">Read More →</a>
+                    <a href="/blog/theme-parks-manipulation.html" class="blog-read-more">Read More →</a>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-date">Sep 15, 2025</div>
+                    <h3 class="blog-title">
+                        <a href="/blog/psychology-of-extreme-experiences.html">The Psychology of Extreme Experiences</a>
+                    </h3>
+                    <p class="blog-excerpt">
+                        Why do we seek out roller coasters, skydiving, and other intense experiences?
+                        Science has some fascinating answers about fear, adrenaline, and human nature.
+                    </p>
+                    <a href="/blog/psychology-of-extreme-experiences.html" class="blog-read-more">Read More →</a>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-date">Aug 10, 2025</div>
+                    <h3 class="blog-title">
+                        <a href="/blog/why-most-reviews-are-garbage.html">Why Most Product Reviews Are Complete Garbage</a>
+                    </h3>
+                    <p class="blog-excerpt">
+                        Affiliate links, sponsored content, and paid placements have destroyed honest
+                        product reviews. Here's how to spot fake reviews and find the truth.
+                    </p>
+                    <a href="/blog/why-most-reviews-are-garbage.html" class="blog-read-more">Read More →</a>
                 </article>
             </div>
         </div>
@@ -1538,36 +2211,9 @@
             </div>
 
             <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">✉</div>
-                        <div class="contact-item-content">
-                            <div class="contact-item-label">Email</div>
-                            <div class="contact-item-value">fabien@critique.club</div>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div class="contact-item-content">
-                            <div class="contact-item-label">Based In</div>
-                            <div class="contact-item-value">Available Worldwide</div>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">⏱</div>
-                        <div class="contact-item-content">
-                            <div class="contact-item-label">Response Time</div>
-                            <div class="contact-item-value">24-48 Hours</div>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="contact-form">
-                    <form>
+                    <!-- Contact Form View (Default) -->
+                    <form id="contactFormView">
                         <div class="form-group">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" id="name" class="form-input" placeholder="Your name" required>
@@ -1585,6 +2231,58 @@
 
                         <button type="submit" class="btn btn-primary form-submit">Send Message</button>
                     </form>
+
+                    <!-- Contact Success View (Hidden by default) -->
+                    <div class="contact-success-view" id="contactSuccessView" style="display: none;">
+                        <div class="contact-success-animation">
+                            <div class="success-icon-wrapper">
+                                <div class="success-icon-plane">✈️</div>
+                                <div class="success-icon-trail"></div>
+                            </div>
+                        </div>
+
+                        <h3 class="contact-success-title">🎉 Message Sent!</h3>
+                        <p class="contact-success-subtitle">
+                            Your message is on its way. I'll get back to you soon!
+                        </p>
+
+                        <div class="contact-success-timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-icon">📬</div>
+                                <div class="timeline-content">
+                                    <h4>Message Received</h4>
+                                    <p>I've got your message and I'm reading it now</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-icon">⏰</div>
+                                <div class="timeline-content">
+                                    <h4>Response Time</h4>
+                                    <p>Expect a reply within 24-48 hours</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-icon">💬</div>
+                                <div class="timeline-content">
+                                    <h4>Stay Connected</h4>
+                                    <p>Check your inbox - I respond to everyone personally</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-success-actions">
+                            <button class="btn btn-primary" id="sendAnotherBtn">
+                                Send Another Message
+                            </button>
+                            <a href="#reviews" class="btn btn-secondary">
+                                Explore Reviews
+                            </a>
+                        </div>
+
+                        <p class="contact-success-note">
+                            💡 <strong>Pro tip:</strong> Check your spam folder if you don't see my reply within 48 hours
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1600,10 +2298,10 @@
                     no corporate influence. Just truth.
                 </p>
                 <div class="footer-social">
-                    <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+                    <a href="https://www.youtube.com/@Fabienscritique" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">▶</a>
                     <a href="#" class="social-link" aria-label="Instagram">📷</a>
-                    <a href="#" class="social-link" aria-label="YouTube">▶</a>
-                    <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                    <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+                    <a href="#" class="social-link" aria-label="Facebook">f</a>
                 </div>
             </div>
 
@@ -1673,30 +2371,38 @@
             }, 3000);
         }
 
-        // Close modal when clicking X button
-        closeModalBtn.addEventListener('click', () => {
+        // Helper function to close modal and reset views
+        function closeEmailModal() {
             emailModal.classList.remove('active');
             document.body.style.overflow = 'auto';
             localStorage.setItem('modalClosed', 'true');
-        });
+
+            // Reset views after a short delay (so user doesn't see the switch)
+            setTimeout(() => {
+                document.getElementById('signupView').style.display = 'block';
+                document.getElementById('successView').style.display = 'none';
+            }, 500);
+        }
+
+        // Close modal when clicking X button
+        closeModalBtn.addEventListener('click', closeEmailModal);
 
         // Close modal when clicking outside
         emailModal.addEventListener('click', (e) => {
             if (e.target === emailModal) {
-                emailModal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-                localStorage.setItem('modalClosed', 'true');
+                closeEmailModal();
             }
         });
 
         // Close modal with ESC key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && emailModal.classList.contains('active')) {
-                emailModal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-                localStorage.setItem('modalClosed', 'true');
+                closeEmailModal();
             }
         });
+
+        // Close modal from success CTA button
+        document.getElementById('successCTABtn').addEventListener('click', closeEmailModal);
 
         // Handle form submission
         emailCaptureForm.addEventListener('submit', async (e) => {
@@ -1737,14 +2443,11 @@
                 // Mark as subscribed
                 localStorage.setItem('emailSubscribed', 'true');
 
-                // Close modal
-                emailModal.classList.remove('active');
-                document.body.style.overflow = 'auto';
+                // Hide signup view and show success view
+                document.getElementById('signupView').style.display = 'none';
+                document.getElementById('successView').style.display = 'block';
 
-                // Show success message
-                alert('Thanks for joining! You\'re now part of the honest reviews club.');
-
-                // Reset form
+                // Reset form for next time
                 emailCaptureForm.reset();
 
             } catch (error) {
@@ -1823,11 +2526,25 @@
             // Here you would typically send the data to a server
             console.log('Form submitted:', { name, email, message });
 
-            // Show success message (you can customize this)
-            alert('Thank you for your message! I\'ll get back to you within 24-48 hours.');
+            // Hide form and show success view
+            document.getElementById('contactFormView').style.display = 'none';
+            document.getElementById('contactSuccessView').style.display = 'block';
 
-            // Reset form
+            // Scroll to contact section smoothly
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Reset form for next time
             contactForm.reset();
+        });
+
+        // Handle "Send Another Message" button
+        document.getElementById('sendAnotherBtn').addEventListener('click', () => {
+            // Hide success view and show form
+            document.getElementById('contactSuccessView').style.display = 'none';
+            document.getElementById('contactFormView').style.display = 'block';
+
+            // Scroll to contact section smoothly
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
 
         // Intersection Observer for fade-in animations
