@@ -1,0 +1,374 @@
+# Secure .gitignore Template
+# Patterns that should NEVER be committed to version control
+#
+# Usage:
+#   cp ~/agents/templates/.gitignore-secure .gitignore
+#   OR append: cat ~/agents/templates/.gitignore-secure >> .gitignore
+
+# ============================================================================
+# CREDENTIALS & SECRETS - CRITICAL
+# ============================================================================
+
+# Environment files
+.env
+.env.*
+.env.local
+.env.development
+.env.test
+.env.production
+.env.staging
+
+# API Keys
+.anthropic_key
+.groq_key
+.openai_key
+.claude_key
+.api_key
+*.key
+
+# Credential files
+credentials.json
+secrets.json
+secrets.yaml
+secrets.yml
+config/secrets.json
+config/credentials.json
+
+# Private keys
+*.pem
+*.p12
+*.pfx
+*.key
+*.cer
+*.crt
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+
+# AWS credentials
+.aws/credentials
+.aws/config
+
+# Google Cloud credentials
+gcloud-service-key.json
+service-account.json
+*-credentials.json
+
+# ============================================================================
+# CLAUDE CODE & AI ASSISTANTS
+# ============================================================================
+
+# Claude Code configuration (contains API keys)
+.claude/
+.anthropic/
+
+# Other AI assistant configs
+.cursor/
+.copilot/
+
+# ============================================================================
+# DEPENDENCIES & BUILD ARTIFACTS
+# ============================================================================
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Ruby
+*.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
+.bundle/
+vendor/bundle
+
+# Go
+/vendor/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+
+# Rust
+/target/
+Cargo.lock
+**/*.rs.bk
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+target/
+.gradle/
+build/
+
+# ============================================================================
+# DATABASES
+# ============================================================================
+
+# SQLite
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+
+# PostgreSQL
+*.dump
+*.sql.gz
+
+# Redis
+dump.rdb
+appendonly.aof
+
+# ============================================================================
+# IDE & EDITOR FILES
+# ============================================================================
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.vim/
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# ============================================================================
+# OPERATING SYSTEM FILES
+# ============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ============================================================================
+# TESTING & COVERAGE
+# ============================================================================
+
+# Test coverage
+coverage/
+.coverage
+.coverage.*
+htmlcov/
+.nyc_output/
+*.lcov
+.pytest_cache/
+.tox/
+.hypothesis/
+
+# Test artifacts
+*.log
+*.out
+test-results/
+junit.xml
+
+# ============================================================================
+# LOGS & TEMPORARY FILES
+# ============================================================================
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# ============================================================================
+# FRAMEWORK-SPECIFIC
+# ============================================================================
+
+# Next.js
+.next/
+out/
+.vercel/
+
+# Nuxt.js
+.nuxt/
+.output/
+
+# Gatsby
+.cache/
+public/
+
+# Vue
+dist/
+
+# React Native
+.expo/
+.expo-shared/
+
+# Rails
+config/master.key
+config/credentials.yml.enc
+
+# Django
+*.pot
+*.pyc
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+/media/
+/static/
+
+# Flask
+instance/
+.webassets-cache
+
+# ============================================================================
+# DOCKER & CONTAINERS
+# ============================================================================
+
+# Docker
+docker-compose.override.yml
+.dockerignore
+
+# Kubernetes
+kubeconfig
+*.kubeconfig
+
+# ============================================================================
+# CI/CD & DEPLOYMENT
+# ============================================================================
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# Ansible
+*.retry
+
+# ============================================================================
+# PROJECT-SPECIFIC (CUSTOMIZE AS NEEDED)
+# ============================================================================
+
+# Add your project-specific patterns below
+# Example:
+# /uploads/
+# /backups/
+# /cache/
