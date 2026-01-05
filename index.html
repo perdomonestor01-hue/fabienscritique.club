@@ -721,15 +721,20 @@
 
         .blog-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-8);
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto;
+            gap: var(--space-6);
         }
 
-        /* Featured Blog Post - Large Hero Style */
+        /* Featured Blog Post - Spans Full Width */
         .blog-card.featured {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: var(--space-8);
             background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-quaternary) 100%);
             border-radius: var(--radius-xl);
-            padding: var(--space-12);
+            padding: 0;
             border: 2px solid var(--accent-primary);
             position: relative;
             overflow: hidden;
@@ -743,57 +748,162 @@
             right: 0;
             height: 4px;
             background: linear-gradient(90deg, var(--accent-primary), var(--accent-dark), var(--accent-primary));
+            background-size: 200% 100%;
+            animation: gradientShift 3s linear infinite;
+            z-index: 10;
         }
 
         .blog-card.featured:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl), var(--shadow-glow);
+        }
+
+        .blog-card.featured .blog-thumbnail {
+            height: 100%;
+            min-height: 280px;
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.3) 0%, rgba(180, 83, 9, 0.2) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-card.featured .blog-thumbnail::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.05) 50%, transparent 70%);
+            animation: shimmer 3s linear infinite;
+        }
+
+        .blog-card.featured .blog-content {
+            padding: var(--space-10);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .blog-card.featured .blog-title {
-            font-size: var(--text-4xl);
+            font-size: var(--text-3xl);
             margin-bottom: var(--space-4);
         }
 
         .blog-card.featured .blog-excerpt {
             font-size: var(--text-lg);
             margin-bottom: var(--space-6);
+            line-height: 1.8;
         }
 
-        /* Regular Blog Cards */
+        /* Regular Blog Cards - With Thumbnail */
         .blog-card {
             background: var(--bg-tertiary);
             border-radius: var(--radius-lg);
-            padding: var(--space-8);
             border: 1px solid var(--executive-graphite);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            overflow: hidden;
         }
 
         .blog-card:hover {
             background: var(--bg-quaternary);
             border-color: var(--executive-steel);
-            transform: translateX(4px);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
         }
 
-        /* Compact Style for Last Post */
+        .blog-card .blog-thumbnail {
+            height: 160px;
+            background: linear-gradient(135deg, var(--executive-graphite) 0%, var(--executive-steel) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 3px solid var(--accent-primary);
+        }
+
+        .blog-card .blog-thumbnail.psychology {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.3) 0%, rgba(109, 40, 217, 0.2) 100%);
+            border-bottom-color: #a78bfa;
+        }
+
+        .blog-card .blog-thumbnail.industry {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.3) 0%, rgba(185, 28, 28, 0.2) 100%);
+            border-bottom-color: #f87171;
+        }
+
+        .blog-card .blog-thumbnail.tech {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.3) 0%, rgba(29, 78, 216, 0.2) 100%);
+            border-bottom-color: #60a5fa;
+        }
+
+        .blog-card .blog-thumbnail.gear {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.3) 0%, rgba(217, 119, 6, 0.2) 100%);
+            border-bottom-color: #fbbf24;
+        }
+
+        .blog-card .blog-content {
+            padding: var(--space-6);
+        }
+
+        /* Horizontal Card Style */
+        .blog-card.horizontal {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 0;
+        }
+
+        .blog-card.horizontal .blog-thumbnail {
+            height: 100%;
+            min-height: 180px;
+            border-bottom: none;
+            border-right: 3px solid var(--accent-primary);
+        }
+
+        .blog-card.horizontal:hover {
+            transform: translateX(8px);
+        }
+
+        /* Compact Style */
         .blog-card.compact {
             background: var(--bg-secondary);
             border-left: 4px solid var(--accent-dark);
-            padding: var(--space-6);
+            border-radius: var(--radius-md);
+        }
+
+        .blog-card.compact .blog-thumbnail {
+            display: none;
+        }
+
+        .blog-card.compact .blog-content {
+            padding: var(--space-5);
         }
 
         .blog-card.compact:hover {
             border-left-color: var(--accent-primary);
             transform: translateX(8px);
+            box-shadow: var(--shadow-md);
         }
 
         .blog-card.compact .blog-title {
-            font-size: var(--text-xl);
+            font-size: var(--text-lg);
         }
 
         .blog-card.compact .blog-excerpt {
             font-size: var(--text-sm);
+            margin-bottom: var(--space-3);
+        }
+
+        /* Two-column section for variety */
+        .blog-row {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-6);
         }
 
         /* Blog Metadata */
@@ -838,6 +948,16 @@
         .blog-category.experiences {
             background: rgba(16, 185, 129, 0.2);
             color: #34d399;
+        }
+
+        .blog-category.tech {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+        }
+
+        .blog-category.gear {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
         }
 
         .blog-reading-time {
@@ -1212,15 +1332,37 @@
 
             /* Blog mobile adjustments */
             .blog-card.featured {
-                padding: var(--space-8);
+                grid-template-columns: 1fr;
+            }
+
+            .blog-card.featured .blog-thumbnail {
+                min-height: 200px;
+            }
+
+            .blog-card.featured .blog-content {
+                padding: var(--space-6);
             }
 
             .blog-card.featured .blog-title {
-                font-size: var(--text-3xl);
+                font-size: var(--text-2xl);
             }
 
             .blog-card.featured .blog-excerpt {
                 font-size: var(--text-base);
+            }
+
+            .blog-card.horizontal {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-card.horizontal .blog-thumbnail {
+                min-height: 150px;
+                border-right: none;
+                border-bottom: 3px solid var(--accent-primary);
+            }
+
+            .blog-row {
+                grid-template-columns: 1fr;
             }
 
             .featured-badge {
@@ -2482,66 +2624,107 @@
             </div>
 
             <div class="blog-grid">
-                <!-- Featured Post - Largest, Most Prominent -->
+                <!-- Featured Post - Full Width with Thumbnail -->
                 <article class="blog-card featured">
-                    <span class="featured-badge">✨ FEATURED</span>
-                    <div class="blog-meta">
-                        <div class="blog-date">Oct 20, 2025</div>
-                        <span class="blog-category experiences">Experiences</span>
-                        <span class="blog-reading-time">🕐 6 min read</span>
+                    <div class="blog-thumbnail">
+                        🎢
                     </div>
-                    <h3 class="blog-title">
-                        <a href="/blog/theme-parks-manipulation.html">How Theme Parks Manipulate Your Experience</a>
-                    </h3>
-                    <p class="blog-excerpt">
-                        From queue line psychology to forced perspective, theme parks are masters of
-                        manipulation. Here's every trick they use and how to see through them—including
-                        the hidden techniques Disney and Universal use to control your emotions and spending.
-                    </p>
-                    <div class="blog-stats">
-                        <span class="blog-stat">👁️ 4,823 views</span>
-                        <span class="blog-stat">💬 28 comments</span>
+                    <div class="blog-content">
+                        <span class="featured-badge">✨ FEATURED</span>
+                        <div class="blog-meta">
+                            <div class="blog-date">Oct 20, 2025</div>
+                            <span class="blog-category experiences">Experiences</span>
+                            <span class="blog-reading-time">🕐 6 min read</span>
+                        </div>
+                        <h3 class="blog-title">
+                            <a href="/blog/theme-parks-manipulation.html">How Theme Parks Manipulate Your Experience</a>
+                        </h3>
+                        <p class="blog-excerpt">
+                            From queue line psychology to forced perspective, theme parks are masters of
+                            manipulation. Here's every trick they use and how to see through them—including
+                            the hidden techniques Disney and Universal use to control your emotions and spending.
+                        </p>
+                        <div class="blog-stats">
+                            <span class="blog-stat">👁️ 4,823 views</span>
+                            <span class="blog-stat">💬 28 comments</span>
+                        </div>
+                        <a href="/blog/theme-parks-manipulation.html" class="blog-read-more">Deep Dive →</a>
                     </div>
-                    <a href="/blog/theme-parks-manipulation.html" class="blog-read-more">Deep Dive →</a>
                 </article>
 
-                <!-- Standard Post - Medium Size -->
-                <article class="blog-card">
-                    <div class="blog-meta">
-                        <div class="blog-date">Sep 15, 2025</div>
-                        <span class="blog-category psychology">Psychology</span>
-                        <span class="blog-reading-time">🕐 5 min read</span>
-                    </div>
-                    <h3 class="blog-title">
-                        <a href="/blog/psychology-of-extreme-experiences.html">The Psychology of Extreme Experiences</a>
-                    </h3>
-                    <p class="blog-excerpt">
-                        Why do we seek out roller coasters, skydiving, and other intense experiences?
-                        Science has some fascinating answers about fear, adrenaline, and human nature.
-                        Discover the neuroscience behind thrill-seeking behavior.
-                    </p>
-                    <div class="blog-stats">
-                        <span class="blog-stat">👁️ 3,291 views</span>
-                        <span class="blog-stat">💬 17 comments</span>
-                    </div>
-                    <a href="/blog/psychology-of-extreme-experiences.html" class="blog-read-more">Read Article →</a>
-                </article>
+                <!-- Two-column row: Tech Review + Psychology -->
+                <div class="blog-row">
+                    <!-- NEW: Tech/Gear Review Post - Blue Theme -->
+                    <article class="blog-card">
+                        <div class="blog-thumbnail tech">
+                            📹
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <div class="blog-date">Jan 2, 2026</div>
+                                <span class="blog-category tech">Tech</span>
+                                <span class="blog-reading-time">🕐 8 min read</span>
+                            </div>
+                            <h3 class="blog-title">
+                                <a href="/blog/dji-osmo-action-5-pro-first-impressions-after-quick-testing.html">DJI Osmo Action 5 Pro: First Impressions</a>
+                            </h3>
+                            <p class="blog-excerpt">
+                                Quick hands-on testing of DJI's latest action camera. How does it stack up against GoPro?
+                            </p>
+                            <div class="blog-stats">
+                                <span class="blog-stat">👁️ 1,247 views</span>
+                                <span class="blog-stat">💬 9 comments</span>
+                            </div>
+                            <a href="/blog/dji-osmo-action-5-pro-first-impressions-after-quick-testing.html" class="blog-read-more">Read Review →</a>
+                        </div>
+                    </article>
 
-                <!-- Compact Post - Smaller, Different Layout -->
-                <article class="blog-card compact">
-                    <div class="blog-meta">
-                        <div class="blog-date">Aug 10, 2025</div>
-                        <span class="blog-category industry">Industry</span>
-                        <span class="blog-reading-time">🕐 4 min read</span>
+                    <!-- Psychology Post - Purple Theme -->
+                    <article class="blog-card">
+                        <div class="blog-thumbnail psychology">
+                            🧠
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <div class="blog-date">Sep 15, 2025</div>
+                                <span class="blog-category psychology">Psychology</span>
+                                <span class="blog-reading-time">🕐 5 min read</span>
+                            </div>
+                            <h3 class="blog-title">
+                                <a href="/blog/psychology-of-extreme-experiences.html">The Psychology of Extreme Experiences</a>
+                            </h3>
+                            <p class="blog-excerpt">
+                                Why do we seek out roller coasters and skydiving? The neuroscience of thrill-seeking.
+                            </p>
+                            <div class="blog-stats">
+                                <span class="blog-stat">👁️ 3,291 views</span>
+                                <span class="blog-stat">💬 17 comments</span>
+                            </div>
+                            <a href="/blog/psychology-of-extreme-experiences.html" class="blog-read-more">Read Article →</a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Horizontal Layout Post - Industry -->
+                <article class="blog-card horizontal">
+                    <div class="blog-thumbnail industry">
+                        🗑️
                     </div>
-                    <h3 class="blog-title">
-                        <a href="/blog/why-most-reviews-are-garbage.html">Why Most Product Reviews Are Complete Garbage</a>
-                    </h3>
-                    <p class="blog-excerpt">
-                        Affiliate links, sponsored content, and paid placements have destroyed honest
-                        product reviews. Here's how to spot fake reviews and find the truth.
-                    </p>
-                    <a href="/blog/why-most-reviews-are-garbage.html" class="blog-read-more">Learn More →</a>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <div class="blog-date">Aug 10, 2025</div>
+                            <span class="blog-category industry">Industry</span>
+                            <span class="blog-reading-time">🕐 4 min read</span>
+                        </div>
+                        <h3 class="blog-title">
+                            <a href="/blog/why-most-reviews-are-garbage.html">Why Most Product Reviews Are Complete Garbage</a>
+                        </h3>
+                        <p class="blog-excerpt">
+                            Affiliate links, sponsored content, and paid placements have destroyed honest
+                            product reviews. Here's how to spot fake reviews and find the truth about what you're buying.
+                        </p>
+                        <a href="/blog/why-most-reviews-are-garbage.html" class="blog-read-more">Exposé →</a>
+                    </div>
                 </article>
             </div>
         </div>
