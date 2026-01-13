@@ -372,3 +372,6 @@ kubeconfig
 # /uploads/
 # /backups/
 # /cache/
+
+# Security patterns (auto-added by sync-resources)
+.user-preferences/

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Fabien's Critique</title>
+        <description>Honest reviews and authentic experiences. No BS, just real sensations and feelings.</description>
+        <link>https://fabienscritique.club</link>
+        <atom:link href="https://fabienscritique.club/feed.xml" rel="self" type="application/rss+xml"/>
+        <language>en-us</language>
+        <lastBuildDate>Mon, 13 Jan 2026 00:00:00 GMT</lastBuildDate>
+        <managingEditor>fabienscritique@gmail.com (Fabien)</managingEditor>
+        <webMaster>fabienscritique@gmail.com (Fabien)</webMaster>
+        <copyright>Copyright 2026 Fabien's Critique</copyright>
+        <category>Reviews</category>
+        <category>Theme Parks</category>
+        <category>Technology</category>
+        <ttl>60</ttl>
+        <image>
+            <url>https://fabienscritique.club/images/logo.png</url>
+            <title>Fabien's Critique</title>
+            <link>https://fabienscritique.club</link>
+        </image>
+
+        <!-- Latest Posts -->
+        <item>
+            <title>DJI Osmo Action 5 Pro: First Impressions After Quick Testing</title>
+            <link>https://fabienscritique.club/blog/dji-osmo-action-5-pro-first-impressions-after-quick-testing.html</link>
+            <guid isPermaLink="true">https://fabienscritique.club/blog/dji-osmo-action-5-pro-first-impressions-after-quick-testing.html</guid>
+            <pubDate>Thu, 02 Jan 2026 00:00:00 GMT</pubDate>
+            <category>Tech</category>
+            <description>Hands-on with DJI's latest action camera. How does it stack up against GoPro? Here's what I found in my initial testing.</description>
+            <content:encoded><![CDATA[
+                <p>Hands-on with DJI's latest action camera. How does it stack up against GoPro? Here's what I found in my initial testing.</p>
+                <p><a href="https://fabienscritique.club/blog/dji-osmo-action-5-pro-first-impressions-after-quick-testing.html">Read the full article</a></p>
+            ]]></content:encoded>
+        </item>
+
+        <item>
+            <title>How Theme Parks Manipulate Your Emotions</title>
+            <link>https://fabienscritique.club/blog/theme-parks-manipulation.html</link>
+            <guid isPermaLink="true">https://fabienscritique.club/blog/theme-parks-manipulation.html</guid>
+            <pubDate>Thu, 18 Dec 2025 00:00:00 GMT</pubDate>
+            <category>Psychology</category>
+            <description>The psychology behind why theme parks feel magical - and how they're designed to keep you spending.</description>
+            <content:encoded><![CDATA[
+                <p>The psychology behind why theme parks feel magical - and how they're designed to keep you spending.</p>
+                <p><a href="https://fabienscritique.club/blog/theme-parks-manipulation.html">Read the full article</a></p>
+            ]]></content:encoded>
+        </item>
+
+        <item>
+            <title>The Psychology of Extreme Experiences</title>
+            <link>https://fabienscritique.club/blog/psychology-of-extreme-experiences.html</link>
+            <guid isPermaLink="true">https://fabienscritique.club/blog/psychology-of-extreme-experiences.html</guid>
+            <pubDate>Wed, 10 Dec 2025 00:00:00 GMT</pubDate>
+            <category>Psychology</category>
+            <description>Why do some people seek out terror while others avoid it? The science behind thrill-seeking behavior.</description>
+            <content:encoded><![CDATA[
+                <p>Why do some people seek out terror while others avoid it? The science behind thrill-seeking behavior.</p>
+                <p><a href="https://fabienscritique.club/blog/psychology-of-extreme-experiences.html">Read the full article</a></p>
+            ]]></content:encoded>
+        </item>
+
+        <item>
+            <title>Why Most Product Reviews Are Complete Garbage</title>
+            <link>https://fabienscritique.club/blog/why-most-reviews-are-garbage.html</link>
+            <guid isPermaLink="true">https://fabienscritique.club/blog/why-most-reviews-are-garbage.html</guid>
+            <pubDate>Wed, 15 Jan 2025 00:00:00 GMT</pubDate>
+            <category>Industry Truth</category>
+            <description>Affiliate links and sponsored content have destroyed honest product reviews. Here's how to spot fake reviews and find the truth.</description>
+            <content:encoded><![CDATA[
+                <p>Let's cut through the BS: 90% of product reviews online are bought and paid for. Not literally—most reviewers aren't taking briefcases of cash in dark alleys. But affiliate links and sponsored content have the same effect.</p>
+                <p><a href="https://fabienscritique.club/blog/why-most-reviews-are-garbage.html">Read the full article</a></p>
+            ]]></content:encoded>
+        </item>
+
+        <item>
+            <title>Why The Back Row on Texas Titan Is A Must Ride</title>
+            <link>https://fabienscritique.club/blog/why-the-back-row-on-texas-titan-is-a-must-ride.html</link>
+            <guid isPermaLink="true">https://fabienscritique.club/blog/why-the-back-row-on-texas-titan-is-a-must-ride.html</guid>
+            <pubDate>Fri, 28 Nov 2025 00:00:00 GMT</pubDate>
+            <category>Experiences</category>
+            <description>The back row experience on Titan at Six Flags Over Texas delivers something special. Here's why you should wait for it.</description>
+            <content:encoded><![CDATA[
+                <p>The back row experience on Titan at Six Flags Over Texas delivers something special. Here's why you should wait for it.</p>
+                <p><a href="https://fabienscritique.club/blog/why-the-back-row-on-texas-titan-is-a-must-ride.html">Read the full article</a></p>
+            ]]></content:encoded>
+        </item>
+
+        <item>
+            <title>Why Titan's Back Row Is A Must-Ride Experience</title>
+            <link>https://fabienscritique.club/blog/why-titans-back-row-is-a-must-ride-experience.html</link>
+            <guid isPermaLink="true">https://fabienscritique.club/blog/why-titans-back-row-is-a-must-ride-experience.html</guid>
+            <pubDate>Tue, 25 Nov 2025 00:00:00 GMT</pubDate>
+            <category>Experiences</category>
+            <description>A deeper dive into what makes the back row on Titan at Six Flags Over Texas an unforgettable coaster experience.</description>
+            <content:encoded><![CDATA[
+                <p>A deeper dive into what makes the back row on Titan at Six Flags Over Texas an unforgettable coaster experience.</p>
+                <p><a href="https://fabienscritique.club/blog/why-titans-back-row-is-a-must-ride-experience.html">Read the full article</a></p>
+            ]]></content:encoded>
+        </item>
+
+        <item>
+            <title>New Texas Giant Front Row POV: Is It Worth The Hype?</title>
+            <link>https://fabienscritique.club/blog/new-texas-giant-front-row-pov-is-it-worth-the-hype.html</link>
+            <guid isPermaLink="true">https://fabienscritique.club/blog/new-texas-giant-front-row-pov-is-it-worth-the-hype.html</guid>
+            <pubDate>Thu, 20 Nov 2025 00:00:00 GMT</pubDate>
+            <category>Experiences</category>
+            <description>Front row on New Texas Giant - worth the wait or overrated? My honest POV experience and verdict.</description>
+            <content:encoded><![CDATA[
+                <p>Front row on New Texas Giant - worth the wait or overrated? My honest POV experience and verdict.</p>
+                <p><a href="https://fabienscritique.club/blog/new-texas-giant-front-row-pov-is-it-worth-the-hype.html">Read the full article</a></p>
+            ]]></content:encoded>
+        </item>
+
+        <item>
+            <title>The Titan Mute Challenge: A Back Seat Chaos Review</title>
+            <link>https://fabienscritique.club/blog/the-titan-mute-challenge-a-back-seat-chaos-review.html</link>
+            <guid isPermaLink="true">https://fabienscritique.club/blog/the-titan-mute-challenge-a-back-seat-chaos-review.html</guid>
+            <pubDate>Sat, 15 Nov 2025 00:00:00 GMT</pubDate>
+            <category>Experiences</category>
+            <description>Can you stay silent during Titan's most intense moments? I tried the mute challenge from the back seat.</description>
+            <content:encoded><![CDATA[
+                <p>Can you stay silent during Titan's most intense moments? I tried the mute challenge from the back seat.</p>
+                <p><a href="https://fabienscritique.club/blog/the-titan-mute-challenge-a-back-seat-chaos-review.html">Read the full article</a></p>
+            ]]></content:encoded>
+        </item>
+
+        <item>
+            <title>The Titan Mute Challenge: A Back Seat Perspective</title>
+            <link>https://fabienscritique.club/blog/the-titan-mute-challenge-a-back-seat-perspective.html</link>
+            <guid isPermaLink="true">https://fabienscritique.club/blog/the-titan-mute-challenge-a-back-seat-perspective.html</guid>
+            <pubDate>Wed, 12 Nov 2025 00:00:00 GMT</pubDate>
+            <category>Experiences</category>
+            <description>Another take on the mute challenge from a different perspective. The back seat has a way of breaking your silence.</description>
+            <content:encoded><![CDATA[
+                <p>Another take on the mute challenge from a different perspective. The back seat has a way of breaking your silence.</p>
+                <p><a href="https://fabienscritique.club/blog/the-titan-mute-challenge-a-back-seat-perspective.html">Read the full article</a></p>
+            ]]></content:encoded>
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,17 @@
+# Robots.txt for fabienscritique.club
+# Honest reviews, accessible to all (including search engines)
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://fabienscritique.club/sitemap.xml
+
+# Crawl-delay (be nice to our hosting)
+Crawl-delay: 1
+
+# Block common bot paths (we don't have these, but just in case)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
+Disallow: /*.json$

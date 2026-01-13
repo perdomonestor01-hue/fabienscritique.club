@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How Fabien's Critique tests and reviews products - our methodology, rating system, and commitment to honest reviews.">
+    <title>Review Methodology | Fabien's Critique</title>
+    <style>
+        :root {
+            --bg-primary: #0d0d0d;
+            --bg-secondary: #1a1a1a;
+            --bg-tertiary: #262626;
+            --text-primary: #ffffff;
+            --text-secondary: #e6e6e6;
+            --text-muted: #999999;
+            --accent-primary: #d97706;
+            --accent-dark: #b45309;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            padding: 2rem 1.5rem;
+            border-bottom: 1px solid #3a3a3a;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover { color: var(--accent-dark); }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-primary);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p { margin-bottom: 1rem; }
+
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        li { margin-bottom: 0.5rem; }
+
+        .highlight-box {
+            background: var(--bg-tertiary);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box strong {
+            color: var(--accent-primary);
+        }
+
+        .principle-card {
+            background: var(--bg-secondary);
+            border: 1px solid #3a3a3a;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .principle-card h4 {
+            color: var(--accent-primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Rating Scale */
+        .rating-scale {
+            display: grid;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .rating-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border: 1px solid #3a3a3a;
+        }
+
+        .rating-stars {
+            flex-shrink: 0;
+            font-size: 1.5rem;
+            min-width: 100px;
+        }
+
+        .rating-meaning h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .rating-meaning p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        a {
+            color: var(--accent-primary);
+            text-decoration: none;
+        }
+
+        a:hover { text-decoration: underline; }
+
+        .footer {
+            background: var(--bg-secondary);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid #3a3a3a;
+            margin-top: 3rem;
+        }
+
+        .footer p {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .container { padding: 2rem 1rem; }
+            .rating-item { flex-direction: column; }
+            .rating-stars { min-width: auto; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="/" class="back-link">&larr; Back to Home</a>
+            <h1>Review Methodology</h1>
+            <p class="subtitle">How I test, what I measure, and why my ratings matter</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="highlight-box">
+            <strong>The Short Version:</strong> I buy everything with my own money, use it for weeks/months before reviewing, and tell you exactly what I think - good or bad. No sponsors. No affiliate links. No pressure to be nice.
+        </div>
+
+        <h2>Core Principles</h2>
+
+        <div class="principle-card">
+            <h4>1. I Buy Everything Myself</h4>
+            <p>Every product I review is purchased with my own money. No free samples, no "review units" from manufacturers. When I spend $200+ on something, you bet I'm going to be honest about whether it was worth it.</p>
+        </div>
+
+        <div class="principle-card">
+            <h4>2. Real-World Testing, Not Lab Conditions</h4>
+            <p>I don't have a testing lab. I have a life. Products get tested the way you'd actually use them - on trails, at theme parks, during commutes, in bad weather. That's more valuable than controlled benchmarks.</p>
+        </div>
+
+        <div class="principle-card">
+            <h4>3. Long-Term Use When Possible</h4>
+            <p>Most "reviews" happen within days of receiving a product. I try to use things for weeks or months before reviewing. Boots get reviewed after 100+ miles. Electronics after real-world battery cycles. First impressions lie.</p>
+        </div>
+
+        <div class="principle-card">
+            <h4>4. Zero Financial Incentive to Be Nice</h4>
+            <p>No affiliate links. No sponsorships. No brand partnerships. If I trash a product, I don't lose money. If I praise one, I don't make money. My only incentive is to help you make better decisions.</p>
+        </div>
+
+        <h2>My Rating Scale</h2>
+        <p>I use a 5-star system, but here's what each rating actually means:</p>
+
+        <div class="rating-scale">
+            <div class="rating-item">
+                <div class="rating-stars">★★★★★</div>
+                <div class="rating-meaning">
+                    <h4>5 Stars - Exceptional</h4>
+                    <p>Rare. This product exceeded expectations. I'd recommend it without hesitation. No major flaws for its intended purpose.</p>
+                </div>
+            </div>
+
+            <div class="rating-item">
+                <div class="rating-stars">★★★★☆</div>
+                <div class="rating-meaning">
+                    <h4>4 Stars - Great</h4>
+                    <p>Solid product with minor issues. Good value for money. Would recommend to most people.</p>
+                </div>
+            </div>
+
+            <div class="rating-item">
+                <div class="rating-stars">★★★☆☆</div>
+                <div class="rating-meaning">
+                    <h4>3 Stars - Average</h4>
+                    <p>Does its job, but nothing special. Has noticeable flaws. Might work for some use cases.</p>
+                </div>
+            </div>
+
+            <div class="rating-item">
+                <div class="rating-stars">★★☆☆☆</div>
+                <div class="rating-meaning">
+                    <h4>2 Stars - Disappointing</h4>
+                    <p>Significant problems. Not worth the money for most people. Might work if you have very specific, limited needs.</p>
+                </div>
+            </div>
+
+            <div class="rating-item">
+                <div class="rating-stars">★☆☆☆☆</div>
+                <div class="rating-meaning">
+                    <h4>1 Star - Avoid</h4>
+                    <p>Fundamentally broken or misleading. Don't buy this. I regret wasting my money.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>What I Test For</h2>
+
+        <h3>Product Reviews</h3>
+        <ul>
+            <li><strong>Build quality:</strong> Will it last? Does it feel cheap?</li>
+            <li><strong>Performance:</strong> Does it do what it claims?</li>
+            <li><strong>Value:</strong> Is it worth the price compared to alternatives?</li>
+            <li><strong>Real-world usability:</strong> How does it perform outside perfect conditions?</li>
+            <li><strong>Long-term durability:</strong> Does it hold up over time?</li>
+        </ul>
+
+        <h3>Experience Reviews (Theme Parks, Activities)</h3>
+        <ul>
+            <li><strong>Intensity:</strong> How extreme is it really?</li>
+            <li><strong>Value:</strong> Was the cost justified by the experience?</li>
+            <li><strong>Crowds/Wait times:</strong> What's the realistic expectation?</li>
+            <li><strong>Authenticity:</strong> Does the marketing match reality?</li>
+            <li><strong>Reride factor:</strong> Would I do it again?</li>
+        </ul>
+
+        <h2>What Makes Me Different</h2>
+
+        <div class="highlight-box">
+            <strong>Most reviewers:</strong> Get free products → Need to maintain relationships with brands → Give 4-5 stars to everything → Make money from affiliate links when you buy<br><br>
+            <strong>Me:</strong> Buy my own stuff → Owe nobody anything → Give honest ratings → Make zero money from your purchases
+        </div>
+
+        <p>I'm not saying sponsored reviewers are all liars. But when your income depends on staying in a brand's good graces, there's inherent pressure - conscious or not - to soften criticism. I've removed that pressure entirely.</p>
+
+        <h2>Disclosure Policy</h2>
+        <p>If anything ever changes, I'll tell you. As of January 2026:</p>
+        <ul>
+            <li>I have <strong>zero</strong> affiliate partnerships</li>
+            <li>I have <strong>zero</strong> brand sponsorships</li>
+            <li>I have received <strong>zero</strong> free products for review</li>
+            <li>All purchases are made with my own money</li>
+        </ul>
+        <p>If I ever accept a sponsored product or affiliate deal in the future, it will be clearly disclosed on every affected review.</p>
+
+        <h2>Questions?</h2>
+        <p>Want to know more about how I tested a specific product? Think I missed something important? <a href="/#contact">Contact me</a> - I read every message.</p>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 Fabien's Critique. All rights reserved.</p>
+        <p>No BS. Just Real Experiences.</p>
+    </div>
+</body>
+</html>

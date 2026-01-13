@@ -1,0 +1,219 @@
+/* =============================================
+   BLOG ENHANCEMENTS - Progress Bar & Social Share
+   ============================================= */
+
+/* Reading Progress Bar */
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, #d97706, #b45309);
+    z-index: 9999;
+    transition: width 0.1s ease;
+    box-shadow: 0 0 10px rgba(217, 119, 6, 0.5);
+}
+
+/* Social Share Buttons */
+.share-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #1a1a1a;
+    border-radius: 12px;
+    border: 1px solid #3a3a3a;
+}
+
+.share-title {
+    width: 100%;
+    font-size: 0.875rem;
+    color: #999;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.share-btn.twitter {
+    background: #1da1f2;
+}
+
+.share-btn.twitter:hover {
+    background: #0c8de4;
+}
+
+.share-btn.facebook {
+    background: #1877f2;
+}
+
+.share-btn.facebook:hover {
+    background: #0c65d0;
+}
+
+.share-btn.linkedin {
+    background: #0077b5;
+}
+
+.share-btn.linkedin:hover {
+    background: #005e93;
+}
+
+.share-btn.reddit {
+    background: #ff4500;
+}
+
+.share-btn.reddit:hover {
+    background: #e63e00;
+}
+
+.share-btn.copy {
+    background: #333;
+    border: 1px solid #555;
+}
+
+.share-btn.copy:hover {
+    background: #444;
+}
+
+.share-btn.copy.copied {
+    background: #166534;
+    border-color: #22c55e;
+}
+
+/* Share Icon */
+.share-icon {
+    font-size: 1rem;
+}
+
+/* Sticky Share Sidebar (Desktop) */
+@media (min-width: 1200px) {
+    .share-sidebar {
+        position: fixed;
+        left: calc((100vw - 800px) / 2 - 80px);
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        z-index: 100;
+    }
+
+    .share-sidebar .share-btn {
+        padding: 0.75rem;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        justify-content: center;
+    }
+
+    .share-sidebar .share-btn span:not(.share-icon) {
+        display: none;
+    }
+}
+
+@media (max-width: 1199px) {
+    .share-sidebar {
+        display: none;
+    }
+}
+
+/* Article Footer CTA */
+.article-footer-cta {
+    background: linear-gradient(135deg, #1a1a1a 0%, #262626 100%);
+    border: 1px solid #3a3a3a;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.article-footer-cta h4 {
+    color: #fff;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.article-footer-cta p {
+    color: #999;
+    margin-bottom: 1rem;
+}
+
+.article-footer-cta .cta-btn {
+    display: inline-block;
+    background: #d97706;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.article-footer-cta .cta-btn:hover {
+    background: #b45309;
+    transform: translateY(-2px);
+}
+
+/* Related Posts */
+.related-posts {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #3a3a3a;
+}
+
+.related-posts h3 {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.related-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.related-post-card {
+    background: #1a1a1a;
+    border: 1px solid #3a3a3a;
+    border-radius: 8px;
+    padding: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.related-post-card:hover {
+    border-color: #d97706;
+    transform: translateY(-2px);
+}
+
+.related-post-card h4 {
+    color: #fff;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.related-post-card span {
+    color: #999;
+    font-size: 0.8rem;
+}
