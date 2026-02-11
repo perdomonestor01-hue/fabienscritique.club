@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!-- Homepage -->
     <url>
         <loc>https://fabienscritique.club/</loc>
-        <lastmod>2026-01-13</lastmod>
+        <lastmod>2026-02-11</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
-
-    <!-- Blog Archive -->
     <url>
         <loc>https://fabienscritique.club/blog/</loc>
-        <lastmod>2026-01-13</lastmod>
+        <lastmod>2026-02-11</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
-
-    <!-- Legal Pages -->
     <url>
         <loc>https://fabienscritique.club/privacy.html</loc>
         <lastmod>2026-01-13</lastmod>
@@ -35,33 +30,11 @@
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
-
-    <!-- Methodology -->
     <url>
         <loc>https://fabienscritique.club/methodology.html</loc>
         <lastmod>2026-01-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-    </url>
-
-    <!-- Blog Posts -->
-    <url>
-        <loc>https://fabienscritique.club/blog/dji-osmo-action-5-pro-first-impressions-after-quick-testing.html</loc>
-        <lastmod>2026-01-02</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://fabienscritique.club/blog/theme-parks-manipulation.html</loc>
-        <lastmod>2025-12-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://fabienscritique.club/blog/psychology-of-extreme-experiences.html</loc>
-        <lastmod>2025-12-10</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
     </url>
     <url>
         <loc>https://fabienscritique.club/blog/why-most-reviews-are-garbage.html</loc>
@@ -70,32 +43,50 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://fabienscritique.club/blog/why-the-back-row-on-texas-titan-is-a-must-ride.html</loc>
-        <lastmod>2025-11-28</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://fabienscritique.club/blog/why-titans-back-row-is-a-must-ride-experience.html</loc>
-        <lastmod>2025-11-25</lastmod>
+        <loc>https://fabienscritique.club/blog/dji-osmo-action-5-pro-first-impressions-after-quick-testing.html</loc>
+        <lastmod>2026-01-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://fabienscritique.club/blog/new-texas-giant-front-row-pov-is-it-worth-the-hype.html</loc>
-        <lastmod>2025-11-20</lastmod>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://fabienscritique.club/blog/psychology-of-extreme-experiences.html</loc>
+        <lastmod>2025-01-08</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://fabienscritique.club/blog/the-titan-mute-challenge-a-back-seat-chaos-review.html</loc>
-        <lastmod>2025-11-15</lastmod>
+        <lastmod>2026-01-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://fabienscritique.club/blog/the-titan-mute-challenge-a-back-seat-perspective.html</loc>
-        <lastmod>2025-11-12</lastmod>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://fabienscritique.club/blog/theme-parks-manipulation.html</loc>
+        <lastmod>2024-12-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://fabienscritique.club/blog/why-the-back-row-on-texas-titan-is-a-must-ride.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://fabienscritique.club/blog/why-titans-back-row-is-a-must-ride-experience.html</loc>
+        <lastmod>2026-01-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>

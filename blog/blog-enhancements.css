@@ -217,3 +217,33 @@
     color: #999;
     font-size: 0.8rem;
 }
+
+/* ===================================
+   REDUCED MOTION - BLOG ENHANCEMENTS
+   =================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .reading-progress {
+        transition: none;
+    }
+
+    .share-btn {
+        transition: none;
+    }
+
+    .share-btn:hover {
+        transform: none;
+    }
+
+    .related-post-card {
+        transition: none;
+    }
+
+    .related-post-card:hover {
+        transform: none;
+    }
+
+    .article-footer-cta .cta-btn:hover {
+        transform: none;
+    }
+}

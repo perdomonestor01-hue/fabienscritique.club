@@ -1,0 +1,349 @@
+/* ===================================
+   RESET & BASE STYLES
+   =================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    font-size: var(--text-base);
+    line-height: 1.7;
+    color: var(--text-secondary);
+    background: var(--bg-primary);
+    overflow-x: hidden;
+}
+
+/* ===================================
+   TYPOGRAPHY
+   =================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--space-4);
+}
+
+h1 {
+    font-size: clamp(var(--text-4xl), 5vw, var(--text-6xl));
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
+    letter-spacing: -0.01em;
+}
+
+h3 {
+    font-size: clamp(var(--text-2xl), 3vw, var(--text-3xl));
+}
+
+h4 {
+    font-size: var(--text-xl);
+}
+
+p {
+    margin-bottom: var(--space-4);
+}
+
+a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent-dark);
+}
+
+/* ===================================
+   BUTTONS
+   =================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4) var(--space-8);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: var(--text-base);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-dark) 100%);
+    color: var(--bg-primary);
+    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent-darker) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(217, 119, 6, 0.5), var(--shadow-glow);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--executive-steel);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: var(--executive-graphite);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: -1;
+}
+
+.btn-secondary:hover::before {
+    width: 300%;
+    height: 300%;
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ===================================
+   SECTION LAYOUT
+   =================================== */
+
+.section {
+    padding: var(--space-24) var(--space-6);
+    position: relative;
+}
+
+.section-alt {
+    background: var(--bg-secondary);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--space-16);
+}
+
+.section-label {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    background: linear-gradient(135deg, var(--executive-graphite) 0%, var(--executive-steel) 100%);
+    color: var(--accent-primary);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-4);
+    border: 1px solid var(--executive-steel);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.section-label:hover {
+    box-shadow: var(--shadow-glow);
+    transform: scale(1.05);
+}
+
+.section-title {
+    margin-bottom: var(--space-4);
+}
+
+.section-description {
+    font-size: var(--text-lg);
+    color: var(--text-tertiary);
+}
+
+/* ===================================
+   ANIMATIONS
+   =================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ===================================
+   SCROLL-DRIVEN ANIMATIONS (2026)
+   Progressive enhancement: older
+   browsers show static content.
+   =================================== */
+
+@supports (animation-timeline: view()) {
+    /* Cards fade up and scale in as they enter the viewport */
+    .review-card,
+    .blog-card {
+        animation: scaleReveal linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 100%;
+    }
+
+    /* Section headers slide in */
+    .section-header {
+        animation: fadeInUp linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 80%;
+    }
+
+    /* Principles slide from left */
+    .principle {
+        animation: slideInFromLeft linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 70%;
+    }
+
+    /* About text paragraphs fade in */
+    .about-text p {
+        animation: fadeInUp linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 80%;
+    }
+
+    /* Contact form slides up */
+    .contact-form {
+        animation: fadeInUp linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 80%;
+    }
+
+    /* Footer content slides up */
+    .footer-content {
+        animation: fadeInUp linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 90%;
+    }
+}
+
+/* ===================================
+   ACCESSIBILITY - REDUCED MOTION
+   =================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* Ensure scroll-driven animations are also disabled */
+    .review-card,
+    .blog-card,
+    .section-header,
+    .principle,
+    .about-text p,
+    .contact-form,
+    .footer-content {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent-primary);
+    color: var(--bg-primary);
+    padding: var(--space-2) var(--space-4);
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* ===================================
+   RESPONSIVE - BASE
+   =================================== */
+
+@media (max-width: 768px) {
+    :root {
+        --space-24: 4rem;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}

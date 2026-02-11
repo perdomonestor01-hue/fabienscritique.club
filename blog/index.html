@@ -5,239 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Browse all articles from Fabien's Critique - honest insights on theme parks, product reviews, and industry truth.">
     <title>Blog Archive | Fabien's Critique</title>
-    <style>
-        :root {
-            --bg-primary: #0d0d0d;
-            --bg-secondary: #1a1a1a;
-            --bg-tertiary: #262626;
-            --text-primary: #ffffff;
-            --text-secondary: #e6e6e6;
-            --text-muted: #999999;
-            --accent-primary: #d97706;
-            --accent-dark: #b45309;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
-            padding: 2rem 1.5rem;
-            border-bottom: 1px solid #3a3a3a;
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .back-link {
-            color: var(--accent-primary);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .back-link:hover { color: var(--accent-dark); }
-
-        h1 {
-            font-size: 2.5rem;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .header-subtitle {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
-
-        /* Main Content */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-        }
-
-        /* Search and Filter */
-        .controls {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            border: 1px solid #3a3a3a;
-        }
-
-        .search-box {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            background: var(--bg-tertiary);
-            border: 1px solid #3a3a3a;
-            border-radius: 8px;
-            color: var(--text-primary);
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--accent-primary);
-        }
-
-        .search-input::placeholder {
-            color: var(--text-muted);
-        }
-
-        .filter-buttons {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 0.5rem 1rem;
-            background: var(--bg-tertiary);
-            border: 1px solid #3a3a3a;
-            border-radius: 20px;
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn:hover {
-            border-color: var(--accent-primary);
-            color: var(--accent-primary);
-        }
-
-        .filter-btn.active {
-            background: var(--accent-primary);
-            border-color: var(--accent-primary);
-            color: var(--text-primary);
-        }
-
-        /* Blog Grid */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .blog-card {
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            border: 1px solid #3a3a3a;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .blog-card-content {
-            padding: 1.5rem;
-        }
-
-        .blog-category {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: rgba(217, 119, 6, 0.2);
-            color: var(--accent-primary);
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            border-radius: 4px;
-            margin-bottom: 0.75rem;
-        }
-
-        .blog-card h2 {
-            font-size: 1.25rem;
-            color: var(--text-primary);
-            margin-bottom: 0.75rem;
-            line-height: 1.4;
-        }
-
-        .blog-card h2 a {
-            color: inherit;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .blog-card h2 a:hover {
-            color: var(--accent-primary);
-        }
-
-        .blog-excerpt {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .blog-meta {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .blog-meta span {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        /* No Results */
-        .no-results {
-            text-align: center;
-            padding: 3rem;
-            color: var(--text-muted);
-        }
-
-        .no-results h3 {
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--bg-secondary);
-            padding: 2rem 1.5rem;
-            text-align: center;
-            border-top: 1px solid #3a3a3a;
-            margin-top: 3rem;
-        }
-
-        .footer p {
-            color: var(--text-muted);
-            font-size: 0.875rem;
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            .blog-grid { grid-template-columns: 1fr; }
-            .controls { flex-direction: column; }
-            .search-box { min-width: 100%; }
-        }
-    </style>
+    <!-- Shared Stylesheets -->
+    <link rel="stylesheet" href="../styles/variables.css">
+    <link rel="stylesheet" href="../styles/blog-archive.css">
 </head>
 <body>
     <div class="header">
@@ -257,130 +27,119 @@
             <div class="filter-buttons">
                 <button class="filter-btn active" data-category="all">All</button>
                 <button class="filter-btn" data-category="experiences">Experiences</button>
-                <button class="filter-btn" data-category="tech">Tech</button>
-                <button class="filter-btn" data-category="psychology">Psychology</button>
-                <button class="filter-btn" data-category="industry">Industry Truth</button>
+                <button class="filter-btn" data-category="industry-insights">Industry Insights</button>
+                <button class="filter-btn" data-category="industry-truth">Industry Truth</button>
+                <button class="filter-btn" data-category="reviews">Reviews</button>
+                <button class="filter-btn" data-category="theme-parks">Theme Parks</button>
             </div>
         </div>
 
         <!-- Blog Grid -->
         <div class="blog-grid" id="blogGrid">
-            <!-- DJI Osmo Action 5 Pro -->
-            <article class="blog-card" data-category="tech">
+            <article class="blog-card" data-category="theme-parks">
                 <div class="blog-card-content">
-                    <span class="blog-category">Tech</span>
-                    <h2><a href="/blog/dji-osmo-action-5-pro-first-impressions-after-quick-testing.html">DJI Osmo Action 5 Pro: First Impressions After Quick Testing</a></h2>
-                    <p class="blog-excerpt">Hands-on with DJI's latest action camera. How does it stack up against GoPro? Here's what I found in my initial testing.</p>
+                    <span class="blog-category">Theme Parks</span>
+                    <h2><a href="/blog/new-texas-giant-front-row-pov-is-it-worth-the-hype.html">New Texas Giant Front Row POV: Is It Worth the Hype?</a></h2>
+                    <p class="blog-excerpt">New Texas Giant front row POV review at Six Flags Over Texas. With a 95-degree drop and 70 mph speed, is the front row...</p>
                     <div class="blog-meta">
-                        <span>Jan 2, 2026</span>
-                        <span>4 min read</span>
-                        <span>1,247 views</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Theme Parks Manipulation -->
-            <article class="blog-card" data-category="psychology">
-                <div class="blog-card-content">
-                    <span class="blog-category">Psychology</span>
-                    <h2><a href="/blog/theme-parks-manipulation.html">How Theme Parks Manipulate Your Emotions</a></h2>
-                    <p class="blog-excerpt">The psychology behind why theme parks feel magical - and how they're designed to keep you spending.</p>
-                    <div class="blog-meta">
-                        <span>Dec 18, 2025</span>
-                        <span>5 min read</span>
-                        <span>4,823 views</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Psychology of Extreme Experiences -->
-            <article class="blog-card" data-category="psychology">
-                <div class="blog-card-content">
-                    <span class="blog-category">Psychology</span>
-                    <h2><a href="/blog/psychology-of-extreme-experiences.html">The Psychology of Extreme Experiences</a></h2>
-                    <p class="blog-excerpt">Why do some people seek out terror while others avoid it? The science behind thrill-seeking behavior.</p>
-                    <div class="blog-meta">
-                        <span>Dec 10, 2025</span>
-                        <span>6 min read</span>
-                        <span>3,291 views</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Why Most Reviews Are Garbage -->
-            <article class="blog-card" data-category="industry">
-                <div class="blog-card-content">
-                    <span class="blog-category">Industry Truth</span>
-                    <h2><a href="/blog/why-most-reviews-are-garbage.html">Why Most Product Reviews Are Complete Garbage</a></h2>
-                    <p class="blog-excerpt">Affiliate links and sponsored content have destroyed honest product reviews. Here's how to spot fake reviews.</p>
-                    <div class="blog-meta">
-                        <span>Jan 15, 2025</span>
+                        <span>January 7, 2026</span>
                         <span>2 min read</span>
                     </div>
                 </div>
             </article>
 
-            <!-- Texas Titan Back Row -->
-            <article class="blog-card" data-category="experiences">
+            <article class="blog-card" data-category="theme-parks">
                 <div class="blog-card-content">
-                    <span class="blog-category">Experiences</span>
-                    <h2><a href="/blog/why-the-back-row-on-texas-titan-is-a-must-ride.html">Why The Back Row on Texas Titan Is A Must Ride</a></h2>
-                    <p class="blog-excerpt">The back row experience on Titan at Six Flags Over Texas delivers something special. Here's why you should wait for it.</p>
-                    <div class="blog-meta">
-                        <span>Nov 28, 2025</span>
-                        <span>3 min read</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Titan's Back Row Must Ride Experience -->
-            <article class="blog-card" data-category="experiences">
-                <div class="blog-card-content">
-                    <span class="blog-category">Experiences</span>
-                    <h2><a href="/blog/why-titans-back-row-is-a-must-ride-experience.html">Why Titan's Back Row Is A Must-Ride Experience</a></h2>
-                    <p class="blog-excerpt">A deeper dive into what makes the back row on Titan at Six Flags Over Texas an unforgettable coaster experience.</p>
-                    <div class="blog-meta">
-                        <span>Nov 25, 2025</span>
-                        <span>4 min read</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- New Texas Giant Front Row POV -->
-            <article class="blog-card" data-category="experiences">
-                <div class="blog-card-content">
-                    <span class="blog-category">Experiences</span>
-                    <h2><a href="/blog/new-texas-giant-front-row-pov-is-it-worth-the-hype.html">New Texas Giant Front Row POV: Is It Worth The Hype?</a></h2>
-                    <p class="blog-excerpt">Front row on New Texas Giant - worth the wait or overrated? My honest POV experience and verdict.</p>
-                    <div class="blog-meta">
-                        <span>Nov 20, 2025</span>
-                        <span>3 min read</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Titan Mute Challenge - Back Seat Chaos Review -->
-            <article class="blog-card" data-category="experiences">
-                <div class="blog-card-content">
-                    <span class="blog-category">Experiences</span>
+                    <span class="blog-category">Theme Parks</span>
                     <h2><a href="/blog/the-titan-mute-challenge-a-back-seat-chaos-review.html">The Titan Mute Challenge: A Back Seat Chaos Review</a></h2>
-                    <p class="blog-excerpt">Can you stay silent during Titan's most intense moments? I tried the mute challenge from the back seat.</p>
+                    <p class="blog-excerpt">The Titan Mute Challenge from the back seat at Six Flags Over Texas. 4.2 Gs, 255-foot drop, and pure chaos. Why the...</p>
                     <div class="blog-meta">
-                        <span>Nov 15, 2025</span>
+                        <span>January 7, 2026</span>
                         <span>3 min read</span>
                     </div>
                 </div>
             </article>
 
-            <!-- Titan Mute Challenge - Back Seat Perspective -->
+            <article class="blog-card" data-category="theme-parks">
+                <div class="blog-card-content">
+                    <span class="blog-category">Theme Parks</span>
+                    <h2><a href="/blog/the-titan-mute-challenge-a-back-seat-perspective.html">The Titan Mute Challenge: A Back Seat Perspective</a></h2>
+                    <p class="blog-excerpt">Riding the Titan at Six Flags Over Texas in complete silence from the back seat. The Titan Mute Challenge reveals what...</p>
+                    <div class="blog-meta">
+                        <span>January 7, 2026</span>
+                        <span>3 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="theme-parks">
+                <div class="blog-card-content">
+                    <span class="blog-category">Theme Parks</span>
+                    <h2><a href="/blog/why-the-back-row-on-texas-titan-is-a-must-ride.html">Why the Back Row on Texas Titan is a Must-Ride</a></h2>
+                    <p class="blog-excerpt">Why the back row on Texas Titan at Six Flags Over Texas delivers the most intense experience. Real rider perspective on...</p>
+                    <div class="blog-meta">
+                        <span>January 7, 2026</span>
+                        <span>2 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="theme-parks">
+                <div class="blog-card-content">
+                    <span class="blog-category">Theme Parks</span>
+                    <h2><a href="/blog/why-titans-back-row-is-a-must-ride-experience.html">Why Titan's Back Row Is a Must-Ride Experience</a></h2>
+                    <p class="blog-excerpt">Titan at Six Flags Over Texas back row analysis with physics breakdown. 4.5G forces, 255-foot drop, 85 mph. Technical...</p>
+                    <div class="blog-meta">
+                        <span>January 7, 2026</span>
+                        <span>5 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="reviews">
+                <div class="blog-card-content">
+                    <span class="blog-category">Reviews</span>
+                    <h2><a href="/blog/dji-osmo-action-5-pro-first-impressions-after-quick-testing.html">DJI Osmo Action 5 Pro - First Impressions After Quick Testing</a></h2>
+                    <p class="blog-excerpt">DJI Osmo Action 5 Pro first impressions and quick testing results. At $349, how does it compare to GoPro Hero 13?...</p>
+                    <div class="blog-meta">
+                        <span>January 2, 2026</span>
+                        <span>2 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="industry-truth">
+                <div class="blog-card-content">
+                    <span class="blog-category">Industry Truth</span>
+                    <h2><a href="/blog/why-most-reviews-are-garbage.html">Why Most Product Reviews Are Complete Garbage</a></h2>
+                    <p class="blog-excerpt">Affiliate links and sponsored content have destroyed honest product reviews. Here's how to spot fake reviews and find...</p>
+                    <div class="blog-meta">
+                        <span>January 15, 2025</span>
+                        <span>3 min read</span>
+                    </div>
+                </div>
+            </article>
+
             <article class="blog-card" data-category="experiences">
                 <div class="blog-card-content">
                     <span class="blog-category">Experiences</span>
-                    <h2><a href="/blog/the-titan-mute-challenge-a-back-seat-perspective.html">The Titan Mute Challenge: A Back Seat Perspective</a></h2>
-                    <p class="blog-excerpt">Another take on the mute challenge from a different perspective. The back seat has a way of breaking your silence.</p>
+                    <h2><a href="/blog/psychology-of-extreme-experiences.html">The Psychology of Extreme Experiences</a></h2>
+                    <p class="blog-excerpt">Why do we seek out roller coasters, skydiving, and other intense experiences? Science has some fascinating answers...</p>
                     <div class="blog-meta">
-                        <span>Nov 12, 2025</span>
-                        <span>3 min read</span>
+                        <span>January 8, 2025</span>
+                        <span>2 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="industry-insights">
+                <div class="blog-card-content">
+                    <span class="blog-category">Industry Insights</span>
+                    <h2><a href="/blog/theme-parks-manipulation.html">How Theme Parks Manipulate Your Experience</a></h2>
+                    <p class="blog-excerpt">From queue line psychology to forced perspective, theme parks are masters of manipulation. Here's every trick they use...</p>
+                    <div class="blog-meta">
+                        <span>December 28, 2024</span>
+                        <span>2 min read</span>
                     </div>
                 </div>
             </article>

@@ -1,0 +1,76 @@
+/* ===================================
+   DESIGN SYSTEM - SOBER PROFESSIONAL
+   =================================== */
+
+:root {
+    /* Executive Dark Color Palette */
+    --executive-charcoal: #1a1a1a;
+    --executive-slate: #2c2c2c;
+    --executive-graphite: #3a3a3a;
+    --executive-steel: #4a4a4a;
+
+    /* Background System */
+    --bg-primary: #0d0d0d;
+    --bg-secondary: #1a1a1a;
+    --bg-tertiary: #262626;
+    --bg-quaternary: #333333;
+
+    /* Text Colors */
+    --text-primary: #ffffff;
+    --text-secondary: #e6e6e6;
+    --text-tertiary: #cccccc;
+    --text-muted: #999999;
+
+    /* Accent Color - Deep Amber for authenticity */
+    --accent-primary: #d97706;
+    --accent-dark: #b45309;
+    --accent-darker: #92400e;
+
+    /* Spacing System - 8pt Grid */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+
+    /* Fluid Typography Scale (clamp-based) */
+    --text-xs: clamp(0.7rem, 0.65rem + 0.25vw, 0.8rem);
+    --text-sm: clamp(0.8rem, 0.75rem + 0.25vw, 0.9rem);
+    --text-base: clamp(0.95rem, 0.88rem + 0.35vw, 1.1rem);
+    --text-lg: clamp(1.05rem, 0.95rem + 0.5vw, 1.25rem);
+    --text-xl: clamp(1.2rem, 1.05rem + 0.75vw, 1.5rem);
+    --text-2xl: clamp(1.4rem, 1.2rem + 1vw, 1.85rem);
+    --text-3xl: clamp(1.75rem, 1.4rem + 1.75vw, 2.75rem);
+    --text-4xl: clamp(2rem, 1.6rem + 2vw, 3.25rem);
+    --text-5xl: clamp(2.5rem, 2rem + 2.5vw, 4rem);
+    --text-6xl: clamp(3rem, 2.4rem + 3vw, 4.75rem);
+
+    /* Animation Tokens */
+    --duration-fast: 150ms;
+    --duration-normal: 300ms;
+    --duration-slow: 500ms;
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+
+    /* Shadows - Enhanced */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.7);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.8);
+    --shadow-glow: 0 0 30px rgba(217, 119, 6, 0.2);
+    --shadow-glow-strong: 0 0 50px rgba(217, 119, 6, 0.3);
+}
