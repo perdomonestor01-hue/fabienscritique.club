@@ -8,14 +8,14 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(13, 13, 13, 0.95);
+    background: rgba(255, 250, 246, 0.92);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--executive-graphite);
     transition: all 0.3s ease;
 }
 
 .nav.scrolled {
-    background: rgba(13, 13, 13, 0.98);
+    background: rgba(255, 250, 246, 0.98);
     box-shadow: var(--shadow-lg);
 }
 
@@ -200,7 +200,7 @@
         top: 73px;
         left: -100%;
         width: 100%;
-        background: rgba(13, 13, 13, 0.98);
+        background: rgba(255, 250, 246, 0.98);
         backdrop-filter: blur(10px);
         flex-direction: column;
         padding: var(--space-8);

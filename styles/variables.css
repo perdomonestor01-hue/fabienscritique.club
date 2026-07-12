@@ -1,30 +1,41 @@
 /* ===================================
-   DESIGN SYSTEM - SOBER PROFESSIONAL
+   DESIGN SYSTEM - FAMILY COASTER (LIGHT)
+   Warm, playful, WCAG-AA legible.
+   Token NAMES kept identical to the old
+   dark system so base/nav/main.css keep
+   working unchanged — only VALUES changed.
    =================================== */
 
 :root {
-    /* Executive Dark Color Palette */
-    --executive-charcoal: #1a1a1a;
-    --executive-slate: #2c2c2c;
-    --executive-graphite: #3a3a3a;
-    --executive-steel: #4a4a4a;
+    /* Soft "chip / border" neutrals (was Executive Dark) */
+    --executive-charcoal: #fff2ea;
+    --executive-slate: #ffe8dc;
+    --executive-graphite: #ffe4d6;
+    --executive-steel: #ffd0bb;
 
-    /* Background System */
-    --bg-primary: #0d0d0d;
-    --bg-secondary: #1a1a1a;
-    --bg-tertiary: #262626;
-    --bg-quaternary: #333333;
+    /* Background System - warm, airy, theme-park bright */
+    --bg-primary: #fffaf6;      /* warm white */
+    --bg-secondary: #fff2ea;    /* soft peach (alt sections + footer) */
+    --bg-tertiary: #ffe8dc;
+    --bg-quaternary: #ffdcca;
 
-    /* Text Colors */
-    --text-primary: #ffffff;
-    --text-secondary: #e6e6e6;
-    --text-tertiary: #cccccc;
-    --text-muted: #999999;
+    /* Text Colors - deep coaster-night navy on light (high contrast) */
+    --text-primary: #1d2440;
+    --text-secondary: #333c5e;
+    --text-tertiary: #545d80;
+    --text-muted: #6b7391;
 
-    /* Accent Color - Deep Amber for authenticity */
-    --accent-primary: #d97706;
-    --accent-dark: #b45309;
-    --accent-darker: #92400e;
+    /* Accent - sunset coaster coral. Deep enough to pass AA as TEXT
+       (~5:1 on white) while still reading vivid + joyful. */
+    --accent-primary: #d6390f;
+    --accent-dark: #b42d09;
+    --accent-darker: #8f2306;
+
+    /* Fun secondary accents (coaster palette) - additive, used for
+       play badges, gate highlights, emoji-adjacent pops. */
+    --fun-teal: #1d9e96;
+    --fun-yellow: #ffb703;
+    --fun-blue: #3a86ff;
 
     /* Spacing System - 8pt Grid */
     --space-1: 0.25rem;
@@ -60,17 +71,17 @@
     --ease-in: cubic-bezier(0.4, 0, 1, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 
-    /* Border Radius */
-    --radius-sm: 0.25rem;
-    --radius-md: 0.5rem;
-    --radius-lg: 0.75rem;
-    --radius-xl: 1rem;
+    /* Border Radius - a touch rounder for a friendly feel */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.625rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
 
-    /* Shadows - Enhanced */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.7);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.8);
-    --shadow-glow: 0 0 30px rgba(217, 119, 6, 0.2);
-    --shadow-glow-strong: 0 0 50px rgba(217, 119, 6, 0.3);
+    /* Shadows - soft light-mode (navy-tinted, low alpha) */
+    --shadow-sm: 0 1px 2px 0 rgba(29, 36, 64, 0.08);
+    --shadow-md: 0 4px 10px -2px rgba(29, 36, 64, 0.10);
+    --shadow-lg: 0 12px 24px -6px rgba(29, 36, 64, 0.14);
+    --shadow-xl: 0 24px 40px -8px rgba(29, 36, 64, 0.18);
+    --shadow-glow: 0 0 30px rgba(214, 57, 15, 0.18);
+    --shadow-glow-strong: 0 0 50px rgba(214, 57, 15, 0.28);
 }
