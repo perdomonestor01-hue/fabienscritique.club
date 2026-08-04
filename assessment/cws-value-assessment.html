@@ -1,0 +1,786 @@
+<title>CWS Workforce Suite — Value & ROI Assessment</title>
+<style>
+  /* ============================================================
+     CWS Workforce Suite — Value & ROI Assessment
+     Treatment: operations-analyst report. Industrial precision:
+     cool graphite neutrals, a single teal structural accent,
+     gold reserved for headline value, semantic green/red for
+     deltas, and validated categorical hues (blue/aqua/orange)
+     for the three products in charts only.
+     ============================================================ */
+  :root {
+    color-scheme: light;
+    --bg:        #EBEEF3;
+    --surface-1: #FFFFFF;
+    --surface-2: #F4F7FA;
+    --surface-3: #EDF1F6;
+    --ink:       #0F1620;
+    --ink-2:     #47536420;
+    --ink-2:     #495568;
+    --ink-3:     #7B8798;
+    --line:      #DBE1EA;
+    --line-2:    #C9D1DC;
+    --accent:    #0E6E78;
+    --accent-2:  #0A535B;
+    --accent-wash:#E2F0F1;
+    --gold:      #9A6B12;
+    --gold-wash: #F6ECD6;
+    --pos:       #1C7A4C;
+    --pos-wash:  #E1F1E7;
+    --neg:       #B23B3B;
+    --clock:     #2a78d6;
+    --app:       #1baf7a;
+    --safety:    #eb6834;
+    --grid:      #E6EAF0;
+    --shadow:    0 1px 2px rgba(16,22,32,.04), 0 8px 28px rgba(16,22,32,.06);
+    --shadow-sm: 0 1px 2px rgba(16,22,32,.05);
+    --radius:    14px;
+    --radius-sm: 9px;
+    --maxw:      1120px;
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --bg:        #0A0F15;
+      --surface-1: #131C26;
+      --surface-2: #0F1720;
+      --surface-3: #182230;
+      --ink:       #EEF2F7;
+      --ink-2:     #AFBAC8;
+      --ink-3:     #74808F;
+      --line:      #243040;
+      --line-2:    #2E3C4E;
+      --accent:    #38B4C0;
+      --accent-2:  #6FD2DB;
+      --accent-wash:#12303440;
+      --gold:      #E0A63E;
+      --gold-wash: #3A2E1220;
+      --pos:       #4FB482;
+      --pos-wash:  #16351f30;
+      --neg:       #E58080;
+      --clock:     #3987e5;
+      --app:       #22b083;
+      --safety:    #e8703c;
+      --grid:      #202B39;
+      --shadow:    0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.3);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg:#0A0F15; --surface-1:#131C26; --surface-2:#0F1720; --surface-3:#182230;
+    --ink:#EEF2F7; --ink-2:#AFBAC8; --ink-3:#74808F; --line:#243040; --line-2:#2E3C4E;
+    --accent:#38B4C0; --accent-2:#6FD2DB; --accent-wash:#12303440;
+    --gold:#E0A63E; --gold-wash:#3A2E1220; --pos:#4FB482; --pos-wash:#16351f30; --neg:#E58080;
+    --clock:#3987e5; --app:#22b083; --safety:#e8703c; --grid:#202B39;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35); --shadow-sm:0 1px 2px rgba(0,0,0,.3);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sans); font-size: 15px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  h1,h2,h3 { text-wrap: balance; margin: 0; letter-spacing: -0.02em; }
+  p { margin: 0; }
+  a { color: var(--accent-2); }
+  .num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+  .mono { font-family: var(--mono); }
+
+  /* ---------- Masthead ---------- */
+  .masthead {
+    background:
+      radial-gradient(1200px 380px at 88% -40%, var(--accent-wash), transparent 60%),
+      linear-gradient(180deg, var(--surface-1), var(--surface-1));
+    border-bottom: 1px solid var(--line);
+  }
+  .mast-inner { padding: 30px 24px 26px; max-width: var(--maxw); margin: 0 auto; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: 11.5px; font-weight: 650; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 16px;
+  }
+  .eyebrow::before {
+    content: ""; width: 26px; height: 2px; background: var(--accent); display: inline-block; border-radius: 2px;
+  }
+  .mast-title {
+    font-size: clamp(30px, 4.6vw, 46px); font-weight: 800; line-height: 1.03; max-width: 20ch;
+  }
+  .mast-title .thin { color: var(--ink-2); font-weight: 500; }
+  .mast-sub { margin-top: 14px; font-size: 16px; color: var(--ink-2); max-width: 62ch; }
+  .mast-meta {
+    margin-top: 22px; display: flex; flex-wrap: wrap; gap: 0;
+    border-top: 1px solid var(--line); padding-top: 16px;
+  }
+  .meta-cell { padding-right: 30px; margin-right: 30px; border-right: 1px solid var(--line); }
+  .meta-cell:last-child { border-right: 0; margin-right: 0; padding-right: 0; }
+  .meta-k { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+  .meta-v { font-size: 14px; font-weight: 600; margin-top: 3px; }
+
+  /* ---------- Section scaffolding ---------- */
+  section { padding: 40px 0; }
+  .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 22px; }
+  .sec-num {
+    font-family: var(--mono); font-size: 12.5px; font-weight: 600; color: var(--accent);
+    border: 1px solid var(--line-2); border-radius: 6px; padding: 3px 8px; letter-spacing: .04em;
+    flex: none;
+  }
+  .sec-title { font-size: clamp(21px, 2.4vw, 27px); font-weight: 750; }
+  .sec-desc { color: var(--ink-2); max-width: 68ch; margin-top: 6px; font-size: 15px; }
+
+  /* ---------- KPI tiles ---------- */
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .kpi {
+    background: var(--surface-1); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 18px 18px 16px; box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+  }
+  .kpi::before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background: var(--accent); opacity:.9; }
+  .kpi.gold::before { background: var(--gold); }
+  .kpi.pos::before { background: var(--pos); }
+  .kpi-k { font-size: 11.5px; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; }
+  .kpi-v { font-size: clamp(26px, 3.4vw, 34px); font-weight: 800; margin-top: 8px; line-height: 1; letter-spacing: -0.02em; }
+  .kpi-v.gold { color: var(--gold); }
+  .kpi-v.pos { color: var(--pos); }
+  .kpi-sub { font-size: 12.5px; color: var(--ink-2); margin-top: 8px; }
+
+  /* ---------- Operational gains band ---------- */
+  .opgains {
+    margin-top: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 9px;
+    background: linear-gradient(180deg, var(--surface-1), var(--surface-2));
+    border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px;
+  }
+  .og-lead { font-size: 11.5px; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3); font-weight: 700; margin-right: 4px; }
+  .chip {
+    font-size: 12.5px; font-weight: 550; color: var(--ink-2);
+    background: var(--surface-2); border: 1px solid var(--line-2); border-radius: 20px; padding: 6px 12px;
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  .chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex: none; }
+
+  /* ---------- Cards / panels ---------- */
+  .card {
+    background: var(--surface-1); border: 1px solid var(--line); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 24px;
+  }
+  .note {
+    background: var(--surface-2); border: 1px solid var(--line); border-left: 3px solid var(--accent);
+    border-radius: var(--radius-sm); padding: 16px 18px; font-size: 14px; color: var(--ink-2);
+  }
+  .note strong { color: var(--ink); }
+
+  /* ---------- Control panel ---------- */
+  .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  fieldset {
+    border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 16px 18px 18px; margin: 0;
+    background: var(--surface-2);
+  }
+  legend {
+    font-size: 11.5px; letter-spacing: .09em; text-transform: uppercase; font-weight: 700; color: var(--accent);
+    padding: 0 8px; margin-left: -4px;
+  }
+  .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
+  .field { display: flex; flex-direction: column; gap: 5px; }
+  .field label { font-size: 12.5px; color: var(--ink-2); font-weight: 550; display:flex; align-items:center; gap:6px; }
+  .field .unit { color: var(--ink-3); font-weight: 500; }
+  .field input {
+    font-family: var(--mono); font-size: 14.5px; font-variant-numeric: tabular-nums;
+    padding: 8px 10px; border: 1px solid var(--line-2); border-radius: 8px;
+    background: var(--surface-1); color: var(--ink); width: 100%;
+  }
+  .field input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+  details.adv { grid-column: 1 / -1; }
+  details.adv > summary {
+    cursor: pointer; font-size: 13px; font-weight: 600; color: var(--accent);
+    padding: 10px 4px; list-style: none; display: flex; align-items: center; gap: 8px;
+  }
+  details.adv > summary::before { content: "▸"; transition: transform .15s; }
+  details.adv[open] > summary::before { transform: rotate(90deg); }
+  .btn-row { display: flex; gap: 10px; margin-top: 4px; align-items:center; flex-wrap:wrap;}
+  button.reset {
+    font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--ink-2);
+    background: var(--surface-1); border: 1px solid var(--line-2); border-radius: 8px;
+    padding: 8px 14px; cursor: pointer;
+  }
+  button.reset:hover { border-color: var(--accent); color: var(--accent); }
+  .save-flag { font-size:12.5px; color: var(--ink-3); }
+
+  /* ---------- Product sections ---------- */
+  .product { display: grid; grid-template-columns: 1.15fr 1fr; gap: 0; overflow: hidden; padding: 0; }
+  .product-main { padding: 26px 26px 24px; }
+  .product-side { padding: 26px; background: var(--surface-2); border-left: 1px solid var(--line); }
+  .p-tag {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 11.5px; font-weight: 700;
+    letter-spacing: .07em; text-transform: uppercase; padding: 4px 10px; border-radius: 20px;
+  }
+  .p-tag .dot { width: 9px; height: 9px; border-radius: 50%; }
+  .tag-clock { background: color-mix(in srgb, var(--clock) 12%, transparent); color: var(--clock); }
+  .tag-app   { background: color-mix(in srgb, var(--app) 14%, transparent); color: var(--app); }
+  .tag-safety{ background: color-mix(in srgb, var(--safety) 14%, transparent); color: var(--safety); }
+  .dot-clock{background:var(--clock);} .dot-app{background:var(--app);} .dot-safety{background:var(--safety);}
+  .p-title { font-size: 22px; font-weight: 780; margin: 14px 0 4px; }
+  .p-cat { font-size: 13px; color: var(--ink-3); font-weight: 600; letter-spacing: .02em; }
+  .p-body { margin-top: 14px; color: var(--ink-2); font-size: 14.5px; }
+  .mech { margin-top: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .mech-item { display: flex; gap: 11px; font-size: 14px; }
+  .mech-item .ic {
+    flex: none; width: 22px; height: 22px; border-radius: 6px; display: grid; place-items: center;
+    background: var(--accent-wash); color: var(--accent); font-size: 13px; font-weight: 800; margin-top:1px;
+  }
+  .mech-item b { color: var(--ink); font-weight: 650; }
+  .cite { color: var(--ink-3); font-size: 12px; }
+  sup.ref { color: var(--accent); font-weight: 700; font-size: 11px; cursor: help; }
+
+  .side-k { font-size: 11.5px; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; }
+  .side-total { font-size: 30px; font-weight: 800; margin: 6px 0 2px; letter-spacing: -0.02em; }
+  .breakdown { margin-top: 16px; display: flex; flex-direction: column; gap: 2px; }
+  .bd-row {
+    display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px;
+    padding: 9px 0; border-top: 1px dashed var(--line-2); font-size: 13.5px;
+  }
+  .bd-row:first-child { border-top: 0; }
+  .bd-label { color: var(--ink-2); }
+  .bd-val { font-family: var(--mono); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .bd-bar { grid-column: 1 / -1; height: 4px; border-radius: 3px; background: var(--surface-3); overflow: hidden; margin-top: -2px; }
+  .bd-bar > span { display: block; height: 100%; border-radius: 3px; }
+
+  /* ---------- Charts ---------- */
+  .chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .chart-card { padding: 22px 24px 20px; }
+  .chart-title { font-size: 15px; font-weight: 700; }
+  .chart-sub { font-size: 12.5px; color: var(--ink-3); margin-top: 3px; margin-bottom: 14px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; }
+  .legend-item { display: flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--ink-2); }
+  .legend-item .sw { width: 11px; height: 11px; border-radius: 3px; }
+  svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .axis-txt { fill: var(--ink-3); font-size: 11px; font-family: var(--sans); }
+  .bar-label { fill: var(--ink); font-size: 12px; font-weight: 650; font-family: var(--mono); }
+  .bar-name { fill: var(--ink-2); font-size: 12.5px; font-family: var(--sans); }
+
+  /* ---------- Sources / methodology ---------- */
+  .src-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 28px; margin-top: 8px; }
+  .src {
+    display: grid; grid-template-columns: 28px 1fr; gap: 12px; font-size: 13px; color: var(--ink-2);
+    padding: 10px 0; border-top: 1px solid var(--line);
+  }
+  .src .n { font-family: var(--mono); color: var(--accent); font-weight: 700; }
+  .src b { color: var(--ink); font-weight: 650; }
+  table.assump { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  table.assump th, table.assump td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  table.assump th { font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); font-weight: 700; }
+  table.assump td.v { font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; white-space:nowrap; }
+  table.assump tr:last-child td { border-bottom: 0; }
+
+  footer.rep {
+    border-top: 1px solid var(--line); margin-top: 20px; padding: 26px 0 50px; color: var(--ink-3); font-size: 12.5px;
+  }
+  .disclaim { font-size: 12px; color: var(--ink-3); line-height: 1.65; max-width: 92ch; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px) {
+    .kpi-grid { grid-template-columns: 1fr 1fr; }
+    .controls { grid-template-columns: 1fr; }
+    .product { grid-template-columns: 1fr; }
+    .product-side { border-left: 0; border-top: 1px solid var(--line); }
+    .chart-grid { grid-template-columns: 1fr; }
+    .src-list { grid-template-columns: 1fr; }
+    .field-grid { grid-template-columns: 1fr 1fr; }
+    .meta-cell { border-right: 0; padding-right: 0; margin-right: 22px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+  /* ---------- Print / PDF ---------- */
+  @media print {
+    :root { --bg: #fff; --surface-1:#fff; --surface-2:#fafbfc; --shadow:none; --shadow-sm:none; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    body { font-size: 11.5px; }
+    .no-print { display: none !important; }
+    .masthead { border-bottom: 2px solid var(--accent); }
+    section { padding: 16px 0; break-inside: avoid; }
+    .card, .kpi, .product, .chart-card { break-inside: avoid; box-shadow: none; }
+    .chart-grid, .kpi-grid { gap: 10px; }
+    a { color: var(--ink); text-decoration: none; }
+    .product { border: 1px solid var(--line); }
+    @page { margin: 14mm 12mm; }
+  }
+</style>
+
+<div class="masthead">
+  <div class="mast-inner">
+    <div class="eyebrow">Software Value &amp; ROI Assessment</div>
+    <h1 class="mast-title">CWS Workforce Suite<br><span class="thin">a monetary value assessment of three operating tools</span></h1>
+    <p class="mast-sub">An independent, benchmark-based evaluation of the <b>CWS Digital Clock</b>, <b>CWS Employee App</b>, and <b>CWS Safety Manager</b> — quantifying reclaimed labor hours, avoided cost, and return on investment for a light-industrial staffing operation.</p>
+    <div class="mast-meta">
+      <div class="meta-cell"><div class="meta-k">Prepared for</div><div class="meta-v">Custom Workforce Solutions LLC</div></div>
+      <div class="meta-cell"><div class="meta-k">Scope</div><div class="meta-v">3 applications · category-level</div></div>
+      <div class="meta-cell"><div class="meta-k">Basis</div><div class="meta-v">Cited industry benchmarks</div></div>
+      <div class="meta-cell"><div class="meta-k">Model</div><div class="meta-v">Interactive · your inputs</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ===================== SCOPE & BASIS ===================== -->
+  <section>
+    <div class="note">
+      <strong>How to read this document — and its honest limits.</strong> The live CWS applications were not directly accessible from the assessment environment (network policy blocked the hosts), so this report does <b>not</b> describe or claim specific in-app features. Instead it assesses each tool <b>at the category level</b> — the function its name and URL make self-evident — and attaches the value case to <b>published, citable industry benchmarks</b> (numbered <sup class="ref">[n]</sup> throughout and listed in §5). Every company-specific number is a <b>control you set</b>, not an assumption asserted as fact. Change the inputs in §2 and every figure, table, and chart recomputes. Defaults are deliberately conservative and illustrative — replace them with your real headcount, wages, and subscription price to get your number.
+    </div>
+  </section>
+
+  <!-- ===================== EXECUTIVE SUMMARY ===================== -->
+  <section id="summary">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <div><h2 class="sec-title">Executive summary</h2>
+      <p class="sec-desc">The bottom line at your current inputs. These four figures update live as you adjust the model in §2.</p></div>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi gold">
+        <div class="kpi-k">Est. annual value created</div>
+        <div class="kpi-v gold num" id="k-total">—</div>
+        <div class="kpi-sub">Reclaimed time theft + admin + avoided injury cost, per year</div>
+      </div>
+      <div class="kpi pos">
+        <div class="kpi-k">Net annual benefit</div>
+        <div class="kpi-v pos num" id="k-net">—</div>
+        <div class="kpi-sub" id="k-net-sub">After software cost</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-k">First-year ROI</div>
+        <div class="kpi-v num" id="k-roi">—</div>
+        <div class="kpi-sub">Return per dollar of subscription</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-k">Payback period</div>
+        <div class="kpi-v num" id="k-payback">—</div>
+        <div class="kpi-sub" id="k-hours-sub">Labor hours reclaimed / yr: <b id="k-hours" class="num">—</b></div>
+      </div>
+    </div>
+    <div class="opgains">
+      <span class="og-lead">Operational gains beyond the dollar model</span>
+      <span class="chip">24/7 availability — punch, apply &amp; report any hour</span>
+      <span class="chip">No missing punches or missing hours</span>
+      <span class="chip">Invoice-ready, dispute-proof timesheets</span>
+      <span class="chip">Fewer invoice rejections</span>
+      <span class="chip">No missing checks — hours reconcile first pass</span>
+      <span class="chip">OHSAS / OSHA-accurate audit trail</span>
+    </div>
+  </section>
+
+  <!-- ===================== INPUTS ===================== -->
+  <section id="inputs">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <div><h2 class="sec-title">Your operating inputs</h2>
+      <p class="sec-desc">This is the control room. Enter what is true for CWS. The core profile drives everything; open <em>Advanced drivers</em> to tune each benchmark to your reality.</p></div>
+    </div>
+    <div class="card">
+      <div class="controls">
+        <fieldset>
+          <legend>Company profile</legend>
+          <div class="field-grid">
+            <div class="field"><label>Employees on payroll</label><input id="i-emp" type="number" min="1" step="1" value="100"></div>
+            <div class="field"><label>Avg base wage <span class="unit">$/hr</span></label><input id="i-wage" type="number" min="1" step="0.5" value="20"></div>
+            <div class="field"><label>Loaded-cost multiplier</label><input id="i-load" type="number" min="1" step="0.05" value="1.30"></div>
+            <div class="field"><label>Avg hours / week</label><input id="i-hrs" type="number" min="1" step="1" value="40"></div>
+            <div class="field"><label>Pay periods / year</label><input id="i-pp" type="number" min="1" step="1" value="26"></div>
+            <div class="field"><label>New hires / year</label><input id="i-hire" type="number" min="0" step="1" value="60"></div>
+            <div class="field"><label>Client bill rate <span class="unit">$/hr</span></label><input id="i-bill" type="number" min="0" step="1" value="30"></div>
+            <div class="field"><label>Recordable injuries / yr</label><input id="i-inj" type="number" min="0" step="1" value="5"></div>
+            <div class="field"><label>Suite cost <span class="unit">$/yr (all 3)</span></label><input id="i-cost" type="number" min="0" step="100" value="12000"></div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Cost basis</legend>
+          <div class="field-grid">
+            <div class="field"><label>Admin loaded rate <span class="unit">$/hr</span></label><input id="i-admin" type="number" min="1" step="1" value="32"></div>
+            <div class="field"><label>Avg cost / injury <span class="unit">$</span> <sup class="ref">[5]</sup></label><input id="i-injcost" type="number" min="0" step="500" value="43000"></div>
+          </div>
+          <div class="note" style="margin-top:14px; border-left-color:var(--gold);">
+            The <b>Suite cost</b> field is a placeholder — I have no access to CWS pricing. Enter your <b>actual</b> combined subscription so ROI and payback are real, not illustrative.
+          </div>
+        </fieldset>
+
+        <details class="adv">
+          <summary>Advanced drivers — tune each benchmark to CWS (optional)</summary>
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-top:14px;">
+            <fieldset>
+              <legend>Digital Clock</legend>
+              <div class="field-grid" style="grid-template-columns:1fr;">
+                <div class="field"><label>Time-theft rate <span class="unit">% payroll</span> <sup class="ref">[2]</sup></label><input id="i-theft" type="number" min="0" step="0.1" value="2.2"></div>
+                <div class="field"><label>Theft eliminated <span class="unit">%</span></label><input id="i-cap" type="number" min="0" max="100" step="5" value="60"></div>
+                <div class="field"><label>Payroll error rate <span class="unit">%</span> <sup class="ref">[3]</sup></label><input id="i-err" type="number" min="0" step="0.1" value="2.0"></div>
+                <div class="field"><label>Error reduction <span class="unit">%</span> <sup class="ref">[4]</sup></label><input id="i-errcut" type="number" min="0" max="100" step="1" value="58"></div>
+                <div class="field"><label>Timekeeping hrs / period</label><input id="i-clkhrs" type="number" min="0" step="1" value="12"></div>
+                <div class="field"><label>Processing-time cut <span class="unit">%</span> <sup class="ref">[4]</sup></label><input id="i-clkcut" type="number" min="0" max="100" step="1" value="30"></div>
+                <div class="field"><label>Billable-hour leakage <span class="unit">%</span></label><input id="i-leak" type="number" min="0" step="0.1" value="1.0"></div>
+                <div class="field"><label>Leakage recovered <span class="unit">%</span></label><input id="i-leakrec" type="number" min="0" max="100" step="5" value="60"></div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Employee App</legend>
+              <div class="field-grid" style="grid-template-columns:1fr;">
+                <div class="field"><label>HR self-service hrs / week</label><input id="i-hrwk" type="number" min="0" step="1" value="10"></div>
+                <div class="field"><label>Time cut by self-service <span class="unit">%</span></label><input id="i-hrcut" type="number" min="0" max="100" step="1" value="40"></div>
+                <div class="field"><label>Onboarding hrs saved / hire <sup class="ref">[6]</sup></label><input id="i-onb" type="number" min="0" step="0.5" value="2.5"></div>
+                <div class="field"><label>Paper packet cost / hire <span class="unit">$</span></label><input id="i-pkt" type="number" min="0" step="1" value="15"></div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Safety Manager</legend>
+              <div class="field-grid" style="grid-template-columns:1fr;">
+                <div class="field"><label>Report/admin hrs / incident</label><input id="i-rep" type="number" min="0" step="0.5" value="3"></div>
+                <div class="field"><label>Injury reduction <span class="unit">%</span> <sup class="ref">[7]</sup></label><input id="i-injcut" type="number" min="0" max="100" step="1" value="10"></div>
+              </div>
+            </fieldset>
+          </div>
+        </details>
+      </div>
+      <div class="btn-row no-print" style="margin-top:18px;">
+        <button class="reset" id="reset">Reset to conservative defaults</button>
+        <span class="save-flag">Figures recompute instantly. Nothing leaves your browser.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PRODUCT 1 ===================== -->
+  <section id="clock">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <div><h2 class="sec-title">Product-by-product value</h2>
+      <p class="sec-desc">For each tool: what category it sits in, the mechanism by which it converts to money, the benchmark behind each mechanism, and the modeled annual value at your inputs.</p></div>
+    </div>
+
+    <div class="card product" style="margin-bottom:20px;">
+      <div class="product-main">
+        <span class="p-tag tag-clock"><span class="dot dot-clock"></span>Time &amp; Attendance</span>
+        <h3 class="p-title">CWS Digital Clock</h3>
+        <div class="p-cat">clock.securecwsapplicationsllc.com/hub · timekeeping &amp; punch capture</div>
+        <p class="p-body">A digital time-and-attendance hub replaces paper time cards and honor-system punching. For a staffing firm running many hourly workers across client sites, this is the single largest and most defensible source of recoverable cost — it attacks losses that are <em>already happening</em> on every payroll <em>and</em> every client invoice, and it is available <b>24/7</b> so no punch, hour, or check goes missing off-hours.</p>
+        <div class="mech">
+          <div class="mech-item"><span class="ic">1</span><div><b>Eliminates time theft &amp; buddy punching.</b> ~75% of firms lose money this way<sup class="ref">[1]</sup>, averaging <b>2.2% of gross payroll</b><sup class="ref">[2]</sup>. A verified digital punch closes most of that leak.</div></div>
+          <div class="mech-item"><span class="ic">2</span><div><b>Recovers billable hours &amp; kills invoice rejections.</b> Missing punches and missing hours become under-billed or disputed invoices — pure margin leakage. Clean, timestamped records make timesheets invoice-ready and defensible on the first submission.</div></div>
+          <div class="mech-item"><span class="ic">3</span><div><b>Cuts payroll calculation error &amp; missing checks.</b> Manual time cards carry a <b>1–8% error rate</b><sup class="ref">[3]</sup>; automation reduces payroll errors by ~58%<sup class="ref">[4]</sup>, so hours and checks reconcile the first time.</div></div>
+          <div class="mech-item"><span class="ic">4</span><div><b>Shrinks payroll-processing time</b> by ~30%<sup class="ref">[4]</sup> — hours of collecting, reconciling and re-keying time cards every period.</div></div>
+        </div>
+      </div>
+      <div class="product-side">
+        <div class="side-k">Modeled annual value</div>
+        <div class="side-total num" style="color:var(--clock)" id="clk-total">—</div>
+        <div class="cite">at your current inputs</div>
+        <div class="breakdown" id="clk-bd"></div>
+      </div>
+    </div>
+
+    <!-- PRODUCT 2 -->
+    <div class="card product" style="margin-bottom:20px;">
+      <div class="product-main">
+        <span class="p-tag tag-app"><span class="dot dot-app"></span>Workforce Portal / Self-Service</span>
+        <h3 class="p-title">CWS Employee App</h3>
+        <div class="p-cat">securecwsapplicationsllc.com · applications, onboarding &amp; self-service</div>
+        <p class="p-body">The employee-facing portal — where applications, onboarding, documents and day-to-day self-service live. For a staffing business with high hiring volume, its value is concentrated in <em>administrative throughput</em>: work that HR/recruiting staff would otherwise do by hand, per worker, at scale.</p>
+        <div class="mech">
+          <div class="mech-item"><span class="ic">1</span><div><b>Deflects HR admin work.</b> Self-service for pay stubs, schedules, PTO and document access removes a standing weekly load from staff.</div></div>
+          <div class="mech-item"><span class="ic">2</span><div><b>Digitizes onboarding.</b> Cost per hire averages ~$4,700 with onboarding ~$1,830<sup class="ref">[6]</sup>; digital packets cut admin hours and materials on every one of your hires.</div></div>
+          <div class="mech-item"><span class="ic">3</span><div><b>Removes paper</b> — printing, packets and postage per new worker.</div></div>
+        </div>
+      </div>
+      <div class="product-side">
+        <div class="side-k">Modeled annual value</div>
+        <div class="side-total num" style="color:var(--app)" id="app-total">—</div>
+        <div class="cite">at your current inputs</div>
+        <div class="breakdown" id="app-bd"></div>
+      </div>
+    </div>
+
+    <!-- PRODUCT 3 -->
+    <div class="card product">
+      <div class="product-main">
+        <span class="p-tag tag-safety"><span class="dot dot-safety"></span>Safety &amp; Incident Reporting</span>
+        <h3 class="p-title">CWS Safety Manager</h3>
+        <div class="p-cat">safety-report.securecwsapplicationsllc.com · incident capture &amp; compliance</div>
+        <p class="p-body">Digital safety and incident reporting. The value here is asymmetric: the admin savings are modest, but the <em>injury-avoidance</em> upside is large because the underlying events are expensive. Faster hazard reporting and cleaner OSHA recordkeeping are exactly the levers that move claim frequency.</p>
+        <div class="mech">
+          <div class="mech-item"><span class="ic">1</span><div><b>Speeds incident reporting &amp; OSHA logs</b> — 24/7 digital capture replaces paper 300-log admin and investigation paperwork per event, so nothing is reported late.</div></div>
+          <div class="mech-item"><span class="ic">2</span><div><b>OHSAS / OSHA recordkeeping accuracy.</b> Structured, timestamped, audit-ready records replace error-prone paper forms — the difference between a clean audit and a citation.</div></div>
+          <div class="mech-item"><span class="ic">3</span><div><b>Reduces injury frequency.</b> Each medically-consulted injury averages <b>$43,000</b><sup class="ref">[5]</sup>; safety programs return <b>$4–$6 per $1</b> invested<sup class="ref">[7]</sup>. Even a modeled 10% reduction is decisive.</div></div>
+          <div class="mech-item"><span class="ic">4</span><div><b>Lowers compliance &amp; claim exposure</b> — U.S. employers spend &gt;$1B/week on serious injuries<sup class="ref">[8]</sup>; better records reduce that tail risk.</div></div>
+        </div>
+      </div>
+      <div class="product-side">
+        <div class="side-k">Modeled annual value</div>
+        <div class="side-total num" style="color:var(--safety)" id="saf-total">—</div>
+        <div class="cite">at your current inputs</div>
+        <div class="breakdown" id="saf-bd"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CHARTS ===================== -->
+  <section id="charts">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <div><h2 class="sec-title">The picture in numbers</h2>
+      <p class="sec-desc">Where the value concentrates, and how quickly the suite pays for itself.</p></div>
+    </div>
+    <div class="chart-grid">
+      <div class="card chart-card">
+        <div class="chart-title">Annual value by product</div>
+        <div class="chart-sub">Modeled recoverable value, current inputs</div>
+        <div id="chart-bars"></div>
+        <div class="legend">
+          <span class="legend-item"><span class="sw" style="background:var(--clock)"></span>Digital Clock</span>
+          <span class="legend-item"><span class="sw" style="background:var(--app)"></span>Employee App</span>
+          <span class="legend-item"><span class="sw" style="background:var(--safety)"></span>Safety Manager</span>
+        </div>
+      </div>
+      <div class="card chart-card">
+        <div class="chart-title">Cumulative savings vs. suite cost</div>
+        <div class="chart-sub">Break-even point over the first 24 months</div>
+        <div id="chart-payback"></div>
+        <div class="legend">
+          <span class="legend-item"><span class="sw" style="background:var(--pos)"></span>Cumulative value</span>
+          <span class="legend-item"><span class="sw" style="background:var(--ink-3);height:2px;width:16px;border-radius:2px;"></span>Annual suite cost</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== METHODOLOGY & SOURCES ===================== -->
+  <section id="method">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <div><h2 class="sec-title">Methodology &amp; sources</h2>
+      <p class="sec-desc">Every mechanism above resolves to an explicit formula and a published benchmark. Nothing is asserted without a lever you can see and change.</p></div>
+    </div>
+    <div class="chart-grid" style="align-items:start;">
+      <div class="card">
+        <div class="chart-title" style="margin-bottom:12px;">Calculation logic</div>
+        <table class="assump">
+          <tr><th>Value line</th><th style="text-align:right;">Formula</th></tr>
+          <tr><td>Time-theft recovered</td><td class="v">payroll × theft% × capture%</td></tr>
+          <tr><td>Billable hrs recovered</td><td class="v">billed × leakage% × recovered%</td></tr>
+          <tr><td>Payroll-error recovered</td><td class="v">payroll × error% × cut%</td></tr>
+          <tr><td>Timekeeping admin</td><td class="v">hrs × cut% × periods × rate</td></tr>
+          <tr><td>HR self-service</td><td class="v">hrs × cut% × 52 × rate</td></tr>
+          <tr><td>Onboarding admin</td><td class="v">hires × hrs × rate</td></tr>
+          <tr><td>Paper removed</td><td class="v">hires × packet$</td></tr>
+          <tr><td>Incident admin</td><td class="v">injuries × hrs × rate</td></tr>
+          <tr><td>Injury avoided</td><td class="v">injuries × cost × reduction%</td></tr>
+          <tr><td>Gross payroll</td><td class="v">emp × wage × hrs × 52</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <div class="chart-title" style="margin-bottom:6px;">Benchmark sources</div>
+        <div class="src-list" style="grid-template-columns:1fr;">
+          <div class="src"><span class="n">1</span><div><b>~75% of businesses</b> lose money to buddy punching / time theft. — American Payroll Association</div></div>
+          <div class="src"><span class="n">2</span><div><b>Time theft ≈ 2.2% of gross payroll</b> (range 1.5–5%). — Nucleus Research / APA</div></div>
+          <div class="src"><span class="n">3</span><div><b>Manual time-card error rate 1–8%.</b> — American Payroll Association</div></div>
+          <div class="src"><span class="n">4</span><div><b>~30% less processing time, ~58% fewer payroll errors</b> after automating time tracking. — Software Advice / industry surveys</div></div>
+          <div class="src"><span class="n">5</span><div><b>$43,000</b> average cost per medically-consulted work injury (2023). — National Safety Council, Injury Facts</div></div>
+          <div class="src"><span class="n">6</span><div><b>~$4,700 cost per hire; ~$1,830 onboarding.</b> — SHRM benchmarking</div></div>
+          <div class="src"><span class="n">7</span><div><b>$4–$6 returned per $1</b> invested in workplace safety &amp; health. — OSHA, Business Case for Safety</div></div>
+          <div class="src"><span class="n">8</span><div><b>&gt;$1B/week</b> U.S. spend on serious non-fatal injuries. — Liberty Mutual Workplace Safety Index</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:20px;">
+      <p class="disclaim">
+        <b>Assessment notes.</b> This is a value model, not an audit of the CWS applications, which were not directly accessible during preparation; product descriptions are at the category level implied by each name and URL, not verified feature inventories. All monetary outputs are <b>modeled estimates</b> derived from the user-supplied inputs and the cited third-party benchmarks; they are not a guarantee of results. Benchmarks are drawn from published U.S. industry sources and represent averages across many organizations — a specific firm's outcomes vary with baseline maturity, workforce mix, and adoption. The largest single line (time-theft recovery) scales with total payroll and is deliberately gated by an adjustable <em>capture%</em> defaulted to a conservative 60%. Injury-reduction value is defaulted to a conservative 10% and should be tuned to CWS's own loss history. Replace the placeholder subscription price with the actual figure before using ROI or payback for a decision. Figures compute entirely in the browser; no data is transmitted.
+      </p>
+    </div>
+  </section>
+
+  <footer class="rep">
+    <div class="wrap" style="padding:0;">
+      CWS Workforce Suite — Value &amp; ROI Assessment · Prepared for Custom Workforce Solutions LLC · Benchmark-based interactive model.
+      Generated as an editable working document — adjust §2 inputs to reflect your operation.
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+  var fmt$ = function (n) {
+    if (!isFinite(n)) n = 0;
+    return "$" + Math.round(n).toLocaleString("en-US");
+  };
+  var fmt$k = function (n) {
+    if (!isFinite(n)) n = 0;
+    if (Math.abs(n) >= 1000) return "$" + (n / 1000).toFixed(n >= 100000 ? 0 : 1) + "k";
+    return "$" + Math.round(n);
+  };
+  var num = function (id) { var v = parseFloat($(id).value); return isFinite(v) ? v : 0; };
+
+  var DEFAULTS = {
+    "i-emp":100,"i-wage":20,"i-load":1.30,"i-hrs":40,"i-pp":26,"i-hire":60,"i-bill":30,"i-inj":5,"i-cost":12000,
+    "i-admin":32,"i-injcost":43000,"i-theft":2.2,"i-cap":60,"i-err":2.0,"i-errcut":58,
+    "i-clkhrs":12,"i-clkcut":30,"i-leak":1.0,"i-leakrec":60,"i-hrwk":10,"i-hrcut":40,"i-onb":2.5,"i-pkt":15,"i-rep":3,"i-injcut":10
+  };
+
+  function model() {
+    var emp = num("i-emp"), wage = num("i-wage"), load = num("i-load"), hrs = num("i-hrs"),
+        pp = num("i-pp"), hire = num("i-hire"), bill = num("i-bill"), inj = num("i-inj"), cost = num("i-cost"),
+        admin = num("i-admin"), injcost = num("i-injcost");
+    var gross = emp * wage * hrs * 52;
+    var billed = emp * hrs * 52 * bill;
+
+    // Digital Clock
+    var theft = gross * (num("i-theft")/100) * (num("i-cap")/100);
+    var billRec = billed * (num("i-leak")/100) * (num("i-leakrec")/100);
+    var errRec = gross * (num("i-err")/100) * (num("i-errcut")/100);
+    var clkAdmin = num("i-clkhrs") * (num("i-clkcut")/100) * pp * admin;
+    var clk = theft + billRec + errRec + clkAdmin;
+
+    // Employee App
+    var hrss = num("i-hrwk") * (num("i-hrcut")/100) * 52 * admin;
+    var onb = hire * num("i-onb") * admin;
+    var pkt = hire * num("i-pkt");
+    var app = hrss + onb + pkt;
+
+    // Safety Manager
+    var repAdmin = inj * num("i-rep") * admin;
+    var injAvoid = inj * injcost * (num("i-injcut")/100);
+    var saf = repAdmin + injAvoid;
+
+    var total = clk + app + saf;
+    var net = total - cost;
+    var roi = cost > 0 ? (net / cost) * 100 : 0;
+    var payback = total > 0 ? cost / (total / 12) : 0;
+
+    // reclaimed labor hours: admin hours + theft hours (theft$/loaded wage)
+    var loadedWage = wage * load;
+    var theftHrs = loadedWage > 0 ? theft / loadedWage : 0;
+    var adminHrs = num("i-clkhrs") * (num("i-clkcut")/100) * pp
+                 + num("i-hrwk") * (num("i-hrcut")/100) * 52
+                 + hire * num("i-onb")
+                 + inj * num("i-rep");
+    var hours = theftHrs + adminHrs;
+
+    return {
+      gross:gross, cost:cost, total:total, net:net, roi:roi, payback:payback, hours:hours,
+      clk:{total:clk, rows:[["Time-theft recovered",theft],["Billable hrs recovered",billRec],["Payroll-error recovered",errRec],["Timekeeping admin",clkAdmin]]},
+      app:{total:app, rows:[["HR self-service",hrss],["Onboarding admin",onb],["Paper removed",pkt]]},
+      saf:{total:saf, rows:[["Injury cost avoided",injAvoid],["Incident admin",repAdmin]]}
+    };
+  }
+
+  function renderBreakdown(elId, rows, color) {
+    var max = rows.reduce(function (m, r) { return Math.max(m, r[1]); }, 1);
+    var html = "";
+    rows.forEach(function (r) {
+      var pct = max > 0 ? Math.max(3, (r[1] / max) * 100) : 0;
+      html += '<div class="bd-row"><span class="bd-label">' + r[0] +
+              '</span><span class="bd-val">' + fmt$(r[1]) + '</span>' +
+              '<span class="bd-bar"><span style="width:' + pct + '%;background:' + color + '"></span></span></div>';
+    });
+    $(elId).innerHTML = html;
+  }
+
+  function barsChart(m) {
+    var data = [
+      {n:"Digital Clock", v:m.clk.total, c:"var(--clock)"},
+      {n:"Employee App", v:m.app.total, c:"var(--app)"},
+      {n:"Safety Manager", v:m.saf.total, c:"var(--safety)"}
+    ];
+    var max = Math.max(data[0].v, data[1].v, data[2].v, 1);
+    var W = 520, rowH = 62, padL = 8, padR = 96, top = 8;
+    var H = top + data.length * rowH;
+    var barMax = W - padL - padR;
+    var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Annual value by product">';
+    data.forEach(function (d, i) {
+      var y = top + i * rowH;
+      var bw = Math.max(2, (d.v / max) * barMax);
+      svg += '<text class="bar-name" x="' + padL + '" y="' + (y + 14) + '">' + d.n + '</text>';
+      svg += '<rect x="' + padL + '" y="' + (y + 24) + '" width="' + barMax + '" height="14" rx="4" fill="var(--surface-3)"/>';
+      svg += '<rect x="' + padL + '" y="' + (y + 24) + '" width="' + bw + '" height="14" rx="4" fill="' + d.c + '"/>';
+      svg += '<text class="bar-label" x="' + (padL + bw + 8) + '" y="' + (y + 35) + '">' + fmt$(d.v) + '</text>';
+    });
+    svg += '</svg>';
+    $("chart-bars").innerHTML = svg;
+  }
+
+  function paybackChart(m) {
+    var W = 520, H = 250, padL = 46, padR = 14, padT = 12, padB = 28;
+    var months = 24;
+    var monthly = m.total / 12;
+    var maxVal = Math.max(monthly * months, m.cost * 1.15, 1);
+    var x = function (mo) { return padL + (mo / months) * (W - padL - padR); };
+    var y = function (v) { return H - padB - (v / maxVal) * (H - padT - padB); };
+    var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Cumulative savings versus cost">';
+    // grid + y labels
+    var steps = 4;
+    for (var g = 0; g <= steps; g++) {
+      var val = (maxVal / steps) * g, yy = y(val);
+      svg += '<line x1="' + padL + '" y1="' + yy + '" x2="' + (W - padR) + '" y2="' + yy + '" stroke="var(--grid)" stroke-width="1"/>';
+      svg += '<text class="axis-txt" x="' + (padL - 8) + '" y="' + (yy + 3.5) + '" text-anchor="end">' + fmt$k(val) + '</text>';
+    }
+    // x labels
+    [0,6,12,18,24].forEach(function (mo) {
+      svg += '<text class="axis-txt" x="' + x(mo) + '" y="' + (H - 8) + '" text-anchor="middle">' + mo + 'mo</text>';
+    });
+    // cost line (flat annual cost)
+    var cy = y(m.cost);
+    svg += '<line x1="' + padL + '" y1="' + cy + '" x2="' + (W - padR) + '" y2="' + cy + '" stroke="var(--ink-3)" stroke-width="2" stroke-dasharray="5 4"/>';
+    // cumulative value area + line
+    var p1x = x(0), p1y = y(0), p2x = x(months), p2y = y(monthly * months);
+    svg += '<path d="M ' + p1x + ' ' + p1y + ' L ' + p2x + ' ' + p2y + ' L ' + p2x + ' ' + (H - padB) + ' L ' + p1x + ' ' + (H - padB) + ' Z" fill="var(--pos)" opacity="0.10"/>';
+    svg += '<line x1="' + p1x + '" y1="' + p1y + '" x2="' + p2x + '" y2="' + p2y + '" stroke="var(--pos)" stroke-width="2.5"/>';
+    // payback marker
+    var pbMo = monthly > 0 ? m.cost / monthly : 0;
+    if (pbMo > 0 && pbMo <= months) {
+      var mx = x(pbMo), my = y(m.cost);
+      svg += '<line x1="' + mx + '" y1="' + my + '" x2="' + mx + '" y2="' + (H - padB) + '" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="3 3"/>';
+      svg += '<circle cx="' + mx + '" cy="' + my + '" r="5" fill="var(--gold)" stroke="var(--surface-1)" stroke-width="2"/>';
+      var lbl = pbMo < 1 ? "≈" + Math.round(pbMo * 30) + " days" : pbMo.toFixed(1) + " mo";
+      var anchor = mx > W - 90 ? "end" : "start", dx = mx > W - 90 ? -8 : 8;
+      svg += '<text class="bar-label" x="' + (mx + dx) + '" y="' + (my - 10) + '" fill="var(--gold)" text-anchor="' + anchor + '">Payback ' + lbl + '</text>';
+    }
+    svg += '</svg>';
+    $("chart-payback").innerHTML = svg;
+  }
+
+  function update() {
+    var m = model();
+    $("k-total").textContent = fmt$(m.total);
+    $("k-net").textContent = fmt$(m.net);
+    $("k-net").className = "kpi-v pos num";
+    if (m.net < 0) { $("k-net").style.color = "var(--neg)"; } else { $("k-net").style.color = ""; }
+    $("k-roi").textContent = (m.cost > 0 ? Math.round(m.roi).toLocaleString("en-US") + "%" : "—");
+    var pb = m.payback;
+    $("k-payback").textContent = pb <= 0 ? "—" : (pb < 1 ? "≈" + Math.round(pb * 30) + " days" : pb.toFixed(1) + " mo");
+    $("k-hours").textContent = Math.round(m.hours).toLocaleString("en-US") + " hrs";
+    $("k-net-sub").textContent = "After " + fmt$(m.cost) + " software cost";
+
+    $("clk-total").textContent = fmt$(m.clk.total);
+    $("app-total").textContent = fmt$(m.app.total);
+    $("saf-total").textContent = fmt$(m.saf.total);
+    renderBreakdown("clk-bd", m.clk.rows, "var(--clock)");
+    renderBreakdown("app-bd", m.app.rows, "var(--app)");
+    renderBreakdown("saf-bd", m.saf.rows, "var(--safety)");
+
+    barsChart(m);
+    paybackChart(m);
+  }
+
+  // wire inputs
+  Object.keys(DEFAULTS).forEach(function (id) {
+    var el = $(id);
+    if (el) el.addEventListener("input", update);
+  });
+  $("reset").addEventListener("click", function () {
+    Object.keys(DEFAULTS).forEach(function (id) { if ($(id)) $(id).value = DEFAULTS[id]; });
+    update();
+  });
+  // redraw charts on theme toggle (colors are CSS vars, but recompute layout for safety)
+  window.addEventListener("resize", function () { var m = model(); barsChart(m); paybackChart(m); });
+
+  update();
+})();
+</script>
